@@ -1,0 +1,1 @@
+web: gunicorn Sattvic_Hahal_Vegan.wsgi
