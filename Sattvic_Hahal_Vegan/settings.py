@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 # ALLOWED_HOSTS = ['8000-wujiaan2022-sattvichaha-fs8yg1zrw19.ws-eu102.gitpod.io']
-ALLOWED_HOSTS = ['sattvic-halal-vegan.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['sattvic-halal-vegan-1c2a56c89c22.herokuapp.com', 'localhost']
 
 
 # Application definition
