@@ -1,6 +1,56 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">
+                <h1>Sattvic, Halal & Vegen</h1>
+                <h1>Full Color Diet = Full Happy Life</h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-    <h1 >It works!</h1>
+    <div class="container ">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 my-auto">
+                <div class="col-eq-height">
+                    <div class="card">
+                        <div class="card-body">
+                            <a href="" class='title-button btn btn-lg rounded-0 text-uppercase py-3 '>About Us</a>
+                            <a href="" class='item-button btn btn-lg rounded-0 text-uppercase py-3 '>Location & Map</a>
+                            <a href="" class='item-button btn btn-lg rounded-0 text-uppercase py-3 '>Cuisine Type</a>
+                            <a href="" class='item-button btn btn-lg rounded-0 text-uppercase py-3 '>Contact & Media</a>                                                           
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 my-auto">
+                <div class="col-eq-height">
+                    <div class="card">
+                        <div class="card-body">
+                            <a href="" class='title-button btn btn-lg rounded-0 text-uppercase py-3 '>Menu & Price</a>
+                            <div>
+                                <span>
+                                    <a href="" class='item-button btn btn-lg rounded-0 text-uppercase py-3 '>Lunch</a>
+                                </span>
+                                <span>
+                                    <a href="" class='item-button btn btn-lg rounded-0 text-uppercase py-3 '>Dinner</a>
+                                </span>                         
+                            </div>                        
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <a href="" class='title-button btn btn-lg rounded-0 text-uppercase py-3 '>See Available</a>
+                            <a href="" class='item-button btn btn-lg rounded-0 text-uppercase py-3 '>Book a Table</a>                        
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>    
+
 {% endblock %}
