@@ -1,0 +1,60 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    gap: 1em;
+    grid-template-areas:
+    "about menu menu booking booking login"
+    "about blog event event event login"
+    "about blog benefit benefit benefit benefit";
+  }
+
+  .button {
+    display: block;
+    /* Add some styling to make them look like buttons */
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px; /* Optional: Add some spacing between buttons */
+  }
+  
+  /* Optional: Hover effect to highlight the buttons on mouseover */
+  .button:hover {
+    background-color: #ddd;
+  }
+
+
+
+.about {
+    grid-area: About;
+    background-color: rgb(246, 182, 115) ;
+  }
+.menu {
+    grid-area: menu;
+    background-color:lightcoral ;
+  }
+.booking {
+    grid-area: booking;
+    background-color:lightgreen ;
+  }
+.login {
+    grid-area: login;
+    background-color: rgb(237, 152, 237);
+  }
+.event {
+    grid-area: event;
+    background-color:rgb(243, 243, 149) ;
+  }
+.blog {
+    grid-area: blog;
+    background-color:lightskyblue ;
+  }
+.benefit {
+    grid-area: benefit;
+    background-color:rgb(184, 180, 180) ;
+  }
+  
