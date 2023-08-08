@@ -2,24 +2,30 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container-fluid index-text-header image-container">
+    <div class="container-fluid index-text-header">
         <div class="row">
             <div class="col text-darkgreen text-center">
-                <h1>Sattvic, Halal & Vegen</h1>
-                <h1>Full Color Diet = Full Happy Life</h1>
+                {% comment %} <h1>Sattvic, Halal & Vegen</h1>
+                <h1>Full Color Diet = Full Happy Life</h1> {% endcomment %}
             </div>
         </div>
-    </div>
-
-    
+    </div>   
 
 {% endblock %}
 
 {% block content %}
-    <div class="wrapper">
+    <div class="stacked">
 
-        <div class="gallery1">Gallery1</div>
-        <div class="gallery2">gallery2</div>
+        <div class="gallery1">
+            <a href="" class='title-button btn-block'>Menu & Price</a>
+            <a href="" class='item-button'>Lunch</a>            
+            <a href="" class='item-button'>Dinner</a>
+        </div>
+        <div class="gallery2">
+            <a href="" class='title-button'>See Available</a>
+            <p>Only 1 Window Tables for 2 People with Garden View Left</p>
+            <a href="" class='item-button'>Book a Table</a>
+        </div>
         <div class="gallery3">Gallery3</div>
 
         <div class="about">

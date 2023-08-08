@@ -19,70 +19,31 @@ body {
   width: 1.5rem;
 }
 
-.logo-font {
-  text-transform: uppercase;
-}
 
-.main-logo-link {
-  width: fit-content;
-}
-
-  
+ 
 /* page header */
 
-.home-header-container {
-  background-color: aquamarine;
-  /* background: url('/media/pageHeaderRainbow.jpg') no-repeat center center fixed; */
-  /* background-size: cover; */
-  /* padding-top: 50px; */
-}
 
 .text-darkgreen {
-  color: rgb(7, 102, 117);
+  color: rgb(1, 83, 96);
 }
 
-
-
 .icon-text {
-  color: rgb(7, 102, 117);
+  color: rgb(1, 83, 96);
 }
 
 .icon-text:hover {
-  color: rgb(150, 115, 0);
+  color: rgb(93, 3, 3);
 }
 
 .base-nav-header {
-  padding-top: 190px;  
-}
-
-.image-container {
   width: 100%; /* Set the width of the container */
-  height: 270px; /* Set the height of the container */
+  padding-top: 10px;
   background-image: url('/static/image/pageHeaderRainbow.jpg'); /* Path to your image */
   background-size: cover; /* Scale the image to cover the entire container */
   background-position: center; /* Center the image within the container */
 }
 
-.index-text-header {
-  padding-top: 50px;
-  padding-bottom: 80px;
-  /* background-color: rgb(182, 234, 241); */
-}
-
-
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    gap: 1em;
-    grid-template-areas:
-      "pic1 pic1 pic2 pic2 pic3 pic3"
-      "pic1 pic1 pic2 pic2 pic3 pic3"
-      "about menu menu booking booking login"
-      "about blog event event event login"
-      "about blog benefit benefit benefit benefit";
-    margin: 2em;    
-  }
 
 
 
@@ -113,6 +74,22 @@ body {
 
 
 
+
+
+
+.stacked {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 1em;
+    grid-template-areas:
+      "pic1 pic1 pic2 pic2 pic3 pic3"
+      "pic1 pic1 pic2 pic2 pic3 pic3"
+      "about menu menu booking booking login"
+      "about blog event event event login"
+      "about blog benefit benefit benefit benefit";
+    margin: 2em;    
+  }
 
 
 .gallery1 {
