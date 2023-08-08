@@ -1,3 +1,74 @@
+html {
+
+}
+
+body {
+  background: url('') no-repeat center center fixed;
+  background-size: cover;
+  
+  color: #555;
+  font-family: 'Lato';
+}
+
+/* from Bulma */
+.icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.logo-font {
+  text-transform: uppercase;
+}
+
+.main-logo-link {
+  width: fit-content;
+}
+
+  
+/* page header */
+
+.home-header-container {
+  background-color: aquamarine;
+  /* background: url('/media/pageHeaderRainbow.jpg') no-repeat center center fixed; */
+  /* background-size: cover; */
+  /* padding-top: 50px; */
+}
+
+.text-darkgreen {
+  color: rgb(7, 102, 117);
+}
+
+
+
+.icon-text {
+  color: rgb(7, 102, 117);
+}
+
+.icon-text:hover {
+  color: rgb(150, 115, 0);
+}
+
+.base-nav-header {
+  padding-top: 190px;  
+}
+
+.image-container {
+  width: 100%; /* Set the width of the container */
+  height: 270px; /* Set the height of the container */
+  background-image: url('/static/image/pageHeaderRainbow.jpg'); /* Path to your image */
+  background-size: cover; /* Scale the image to cover the entire container */
+  background-position: center; /* Center the image within the container */
+}
+
+.index-text-header {
+  padding-top: 50px;
+  padding-bottom: 80px;
+  /* background-color: rgb(182, 234, 241); */
+}
+
 
 .wrapper {
     display: grid;
@@ -10,26 +81,30 @@
       "about menu menu booking booking login"
       "about blog event event event login"
       "about blog benefit benefit benefit benefit";
-    margin: 2em;
+    margin: 2em;    
   }
-  
+
+
+
+
 
   
-  .button {
-    display: block;
-    /* Add some styling to make them look like buttons */
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 5px; /* Optional: Add some spacing between buttons */
-  }
-  
+.titel-button {
+  display: block;
+  /* Add some styling to make them look like buttons */
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px; /* Optional: Add some spacing between buttons */
+}
+
+   */
   /* Optional: Hover effect to highlight the buttons on mouseover */
-  .button:hover {
+  .titel-button:hover {
     background-color: #ddd;
   }
 
@@ -37,10 +112,7 @@
 
 
 
-.home-icon {
-  height: 20px;
-  background-color: aquamarine;
-}
+
 
 
 .gallery1 {
