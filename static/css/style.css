@@ -36,6 +36,13 @@
 
 
 
+
+.home-icon {
+  height: 20px;
+  background-color: aquamarine;
+}
+
+
 .gallery1 {
   grid-area: pic1;
   background-color: rgb(242, 234, 205);
@@ -78,28 +85,6 @@
   }
   
 
-/* .about {
-    grid-area: about;    
-  }
-.menu {
-    grid-area: menu;    
-  }
-.booking {
-    grid-area: booking;    
-  }
-.login {
-    grid-area: login;    
-  }
-.event {
-    grid-area: event;    
-  }
-.blog {
-    grid-area: blog;    
-  }
-.benefit {
-    grid-area: benefit;   
-  } */
-  
   
 @media only screen and (max-width: 900px)   {
   .wrapper {  
