@@ -48,20 +48,33 @@ body {
 
 
 
-
   
-.titel-button {
+.title-link {
   display: block;
   /* Add some styling to make them look like buttons */
-  background-color: #f0f0f0;
-  color: #333;
+  color: rgb(1, 83, 96);
   padding: 10px;
   text-align: center;
   text-decoration: none;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  
   margin-bottom: 5px; /* Optional: Add some spacing between buttons */
 }
+
+.title-link:hover {
+  color: rgb(142, 110, 28);
+  text-decoration: none;
+}
+
+
+.item-link {
+  margin: 50px;
+  color: rgb(1, 83, 96);
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.item-link
 
    */
   /* Optional: Hover effect to highlight the buttons on mouseover */
