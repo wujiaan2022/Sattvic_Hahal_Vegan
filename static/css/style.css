@@ -37,7 +37,7 @@ body {
 .base-nav-header {
   width: 100%; /* Set the width of the container */
   padding-top: 10px;
-  background-image: url('/static/image/pageHeaderRainbow.jpg'); /* Path to your image */
+  background-image: url('/static/images/pageHeaderRainbow.jpg'); /* Path to your image */
   background-size: cover; /* Scale the image to cover the entire container */
   background-position: center; /* Center the image within the container */
 }
@@ -79,11 +79,12 @@ body {
 
 /* gird cell background image */
 
-#gallery1-imgChange {
+#gallery1 {
   width: 100%;
   height: 100%;
-  background-size: cover; /* Scale the image to cover the entire container */
-  background-position: center; /* Center the image within the container */
+  /* background-image: url('/static/images/colorfulDumplings.jpg'); */
+  background-size: cover; 
+  background-position: center; 
 }
 
 

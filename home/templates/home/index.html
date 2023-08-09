@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_js %}
+    <script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}
+
 {% block page_header %}
     <div class="container-fluid index-text-header">
         <div class="row">
@@ -15,7 +19,7 @@
 {% block content %}
     <div class="stacked">
 
-        <div id="gallery1-imgChange" class="gallery1 grid-cell text-center d-flex flex-column align-items-center justify-content-center ">
+        <div id="gallery1" class="gallery1 grid-cell text-center d-flex flex-column align-items-center justify-content-center ">
             <a href="" class='title-link btn-block  display-4'>Menu & Price</a>
             {% comment %} <a href="" class='item-link'>Lunch</a>            
             <a href="" class='item-link'>Dinner</a> {% endcomment %}
