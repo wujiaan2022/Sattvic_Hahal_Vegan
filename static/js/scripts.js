@@ -3,16 +3,17 @@ var i = 0;
 
 var imagesGallery1 = [
     '/static/images/colorfulDumplings0.jpg',
-    '/static/images/colorfulDumplings1.jpg',
-    '/static/images/colorfulDumplings6.jpg',
+    '/static/images/colorfulDumplings7.jpg', 
+    '/static/images/colorfulDumplings1.jpg',    
     '/static/images/colorfulDumplings2.PNG',
     '/static/images/colorfulDumplings3.PNG',
     '/static/images/colorfulDumplings4.jpeg',
     '/static/images/colorfulDumplings5.jpeg',
-    '/static/images/colorfulDumplings7.jpg',
-    '/static/images/colorfulDumplings8.jpg',
-    '/static/images/colorfulDumplings9.jpg'
+    '/static/images/colorfulDumplings6.jpg',      
+    '/static/images/colorfulDumplings8.jpg', 
+    '/static/images/colorfulDumplings9.jpg',
 ];
+
 
 var imagesGallery3 = [
     '/static/images/sattvicVegan2.jpeg',
@@ -35,7 +36,7 @@ function changePicture(imagesGalleryArray, galleryId) {
     
     gallery.style.opacity = '0'; // Start with opacity 0      
 
-    var timer = setTimeout(function () {
+    setTimeout(function () {
          
         gallery.style.backgroundImage = "url(" + imagesGalleryArray[i] + ")";
         gallery.style.opacity = '1'; // Fade in by setting opacity to 1
@@ -47,21 +48,9 @@ function changePicture(imagesGalleryArray, galleryId) {
         
        setTimeout(function () {
             changePicture(imagesGalleryArray, galleryId);
-        }, slideTime-fadeTime);        
-        
-
+        }, slideTime-fadeTime);    
     }, fadeTime); 
-
-    gallery.addEventListener("mouseenter", function() {
-        timer.pause()
-    });
-    
-    gallery.addEventListener("mouseleave", function() {
-        timer.play()
-    });
-
-}   
-    
+}       
 
 window.onload = function () {
     changePicture(imagesGallery1, 'gallery1');

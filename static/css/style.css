@@ -88,7 +88,7 @@ body {
 }
 
 #gallery1 {
-  background-image: url('/static/images/colorfulDumplings.jpg'); 
+  /* background-image: url('/static/images/colorfulDumplings0.jpg');  */
   transition: opacity 1s ease-in-out;
   opacity: 0;
 }
@@ -100,12 +100,10 @@ body {
 }
 
 #gallery3 {
-  background-image: url('/static/images/sattvicVegan\ \(1\).jpeg'); 
+  /* background-image: url('/static/images/sattvicVegan\ \(1\).jpeg');  */
   transition: opacity 1s ease-in-out;
   opacity: 0;
 }
-
-
 
 .gallery-content {
   /* position: absolute; */
@@ -122,13 +120,14 @@ body {
   transition: opacity 0.5s ease-in-out;
 }
 
+.gallery-container:hover .gallery-content {
+  opacity: 1;
+}
 .gallery-text {
   text-align: center;
 }
 
-.gallery-container:hover .gallery-content {
-  opacity: 1;
-}
+
 
 /* .gallery-container:hover {
   filter: grayscale(100%);
