@@ -1,5 +1,6 @@
 
 var i = 0;
+
 var imagesGallery1 = [
     '/static/images/colorfulDumplings0.jpg',
     '/static/images/colorfulDumplings1.jpg',
@@ -10,6 +11,18 @@ var imagesGallery1 = [
     '/static/images/colorfulDumplings5.jpeg',
     '/static/images/colorfulDumplings7.jpg',
     '/static/images/colorfulDumplings8.jpg',
+    '/static/images/colorfulDumplings9.jpg'
+];
+
+var imagesGallery3 = [
+    '/static/images/sattvicVegan2.jpeg',
+    '/static/images/sattvicVegan3.jpg',
+    '/static/images/sattvicVegan4.jpeg',
+    '/static/images/sattvicVegan5.jpg',
+    '/static/images/sattvicVegan6.jpeg',
+    '/static/images/sattvicVegan7.jpeg',
+    '/static/images/sattvicVegan8.jpg',
+    '/static/images/sattvicVegan9.jpeg',   
 ];
 
 var slideTime = 3000; // 3 seconds
@@ -33,8 +46,19 @@ function changePicture(imagesGalleryArray, galleryId) {
             changePicture(imagesGalleryArray, galleryId);
         }, slideTime - fadeTime);
     }, fadeTime);
+
+   
 }
 
-window.onload = function () {
+
+function stopShow(){
+    clearTimeout(slideTime, fadeTime);
+}  
+  
+function runShow() {
     changePicture(imagesGallery1, 'gallery1');
-};
+    changePicture(imagesGallery3, 'gallery3');
+}   
+
+window.onload = runShow;
+
