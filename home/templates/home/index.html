@@ -4,29 +4,31 @@
 
 
 {% block page_header %}
-    <div class="container-fluid index-text-header">
+    {% comment %} <div class="container-fluid index-text-header">
         <div class="row">
             <div class="col">
                 
             </div>
         </div>
-    </div>   
+    </div>    {% endcomment %}
 
 {% endblock %}
 
 {% block content %}
     <div class="stacked">
-
-        <div id="gallery1" class="gallery1 grid-cell text-center d-flex flex-column align-items-center justify-content-center ">
-            <a href="" class='title-link btn-block  display-4'>Menu & Price</a>
-            {% comment %} <a href="" class='item-link'>Lunch</a>            
-            <a href="" class='item-link'>Dinner</a> {% endcomment %}
+        
+        <div id="gallery1" class="gallery gallery1 gallery-container text-center d-flex flex-column align-items-center justify-content-center ">
+            <a href="" class='gallery-content title-link btn-block  display-4'>
+                <div class="gallery-content">
+                    <p class="gallery-text">Check out our colorful Dumpling serving schedule!</p>
+                </div>
+            </a>            
         </div>
-        <div class="gallery2">
-            <a href="" class='title-link'>See Available</a>
-            <p>Only 1 Window Tables for 2 People with Garden View Left</p>
-            <a href="" class='item-link'>Book a Table</a>
+        
+        <div id="gallery2" class="gallery gallery2">
+            <a href="" class='title-link'>Book a Table</a>
         </div>
+        
         <div class="gallery3">Gallery3</div>
 
         <div class="about">
@@ -37,7 +39,7 @@
                                                                      
         </div>
         <div class="menu">
-            <a href="" class='title-link btn-block'>Menu & Price</a>
+            <a href="" class='title-link btn-block  display-4'>Menu & Price</a>
             <a href="" class='item-link'>Lunch</a>            
             <a href="" class='item-link'>Dinner</a>
             

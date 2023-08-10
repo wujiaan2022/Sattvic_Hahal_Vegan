@@ -13,23 +13,28 @@ var imagesGallery1 = [
 ];
 
 var slideTime = 3000; // 3 seconds
+var fadeTime = 1000;  // 1 second (adjust as needed)
 
 function changePicture(imagesGalleryArray, galleryId) {
 
     var gallery = document.getElementById(galleryId);
     
-    gallery.style.backgroundImage = "url(" + imagesGalleryArray[i] + ")";  // Use imagesGalleryArray
+    gallery.style.opacity = '0'; // Start with opacity 0
     
-    if (i < imagesGalleryArray.length - 1) {  // Use imagesGalleryArray.length
-        i++;
-    } else {
-        i = 0;
-    }
     setTimeout(function () {
-        changePicture(imagesGalleryArray, galleryId);  // Pass the arguments
-    }, slideTime);
+        gallery.style.backgroundImage = "url(" + imagesGalleryArray[i] + ")";
+        gallery.style.opacity = '1'; // Fade in by setting opacity to 1
+        if (i < imagesGalleryArray.length - 1) {
+            i++;
+        } else {
+            i = 0;
+        }
+        setTimeout(function () {
+            changePicture(imagesGalleryArray, galleryId);
+        }, slideTime - fadeTime);
+    }, fadeTime);
 }
 
 window.onload = function () {
-    changePicture(imagesGallery1, 'gallery1');  // Pass the arguments
+    changePicture(imagesGallery1, 'gallery1');
 };

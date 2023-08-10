@@ -77,15 +77,54 @@ body {
 
 
 
-/* gird cell background image */
+/* gallery background image */
+
+.gallery {
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center; 
+}
 
 #gallery1 {
   width: 100%;
   height: 100%;
   background-image: url('/static/images/colorfulDumplings.jpg');
   background-size: cover; 
+  background-repeat: no-repeat;
   background-position: center; 
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
 }
+
+
+.gallery-content {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background: rgba(252, 234, 145, 0.499);
+  color: rgb(1, 83, 96);
+  transition: opacity 0.5s ease-in-out;
+}
+
+.gallery-text {
+  text-align: center;
+}
+
+.gallery-container:hover .gallery-content {
+  opacity: 1;
+}
+
+/* .gallery-container:hover {
+  filter: grayscale(100%);
+} */
 
 
 
