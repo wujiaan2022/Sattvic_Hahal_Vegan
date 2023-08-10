@@ -25,16 +25,18 @@ var imagesGallery3 = [
     '/static/images/sattvicVegan9.jpeg',   
 ];
 
-var slideTime = 3000; // 3 seconds
-var fadeTime = 1000;  // 1 second (adjust as needed)
+var slideTime = 3000;
+var fadeTime = 1000;
+
 
 function changePicture(imagesGalleryArray, galleryId) {
-
+   
     var gallery = document.getElementById(galleryId);
     
-    gallery.style.opacity = '0'; // Start with opacity 0
-    
-    setTimeout(function () {
+    gallery.style.opacity = '0'; // Start with opacity 0      
+
+    var timer = setTimeout(function () {
+         
         gallery.style.backgroundImage = "url(" + imagesGalleryArray[i] + ")";
         gallery.style.opacity = '1'; // Fade in by setting opacity to 1
         if (i < imagesGalleryArray.length - 1) {
@@ -42,23 +44,28 @@ function changePicture(imagesGalleryArray, galleryId) {
         } else {
             i = 0;
         }
-        setTimeout(function () {
+        
+       setTimeout(function () {
             changePicture(imagesGalleryArray, galleryId);
-        }, slideTime - fadeTime);
-    }, fadeTime);
+        }, slideTime-fadeTime);        
+        
 
-   
-}
+    }, fadeTime); 
 
+    gallery.addEventListener("mouseenter", function() {
+        timer.pause()
+    });
+    
+    gallery.addEventListener("mouseleave", function() {
+        timer.play()
+    });
 
-function stopShow(){
-    clearTimeout(slideTime, fadeTime);
-}  
-  
-function runShow() {
+}   
+    
+
+window.onload = function () {
     changePicture(imagesGallery1, 'gallery1');
     changePicture(imagesGallery3, 'gallery3');
-}   
+};
 
-window.onload = runShow;
 
