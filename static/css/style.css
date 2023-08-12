@@ -77,15 +77,73 @@ body {
 
 
 
-/* gallery background image */
+  input[type=text],
+  input[type=password],
+  textarea {
+      border: 1px solid #EB796F;
+      border-radius: 5px;
+      padding: 10px;
+      width: 90%;
+  }
+  
+  label {
+      padding-top: 10px;
+      display: block;
+  }
+  
+  .button {
+      border: 1px solid #EB796F;
+      background-color: #FAFAFA;
+      color: #EB796F;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 10px;
+  }
 
-.gallery {
+
+/* gallery background image and text */
+
+.gallery-container {
+  position: relative;
   width: 100%;
   height: 100%;
   background-size: cover; 
   background-repeat: no-repeat;
   background-position: center; 
 }
+
+
+.gallery-content {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background: rgba(252, 234, 145, 0.499);
+  color: rgb(1, 83, 96);
+  transition: none;
+  animation: none;
+}
+
+
+.gallery-text {
+  position: absolute;
+  text-align: center;
+  /* transition: none;
+  animation: none; */
+}
+
+.gallery-content:hover .gallery-text {
+  opacity: 1;
+}
+
 
 #gallery1 {
   /* background-image: url('/static/images/colorfulDumplings0.jpg');  */
@@ -105,27 +163,17 @@ body {
   opacity: 0;
 }
 
-.gallery-content {
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  background: rgba(252, 234, 145, 0.499);
-  color: rgb(1, 83, 96);
-  transition: opacity 0.5s ease-in-out;
+
+
+.gallery-container:hover {
+  transition: none;
+  animation: none;
 }
 
-.gallery-container:hover .gallery-content {
+.gallery-content:hover .gallery-text {
   opacity: 1;
 }
-.gallery-text {
-  text-align: center;
-}
+
 
 
 
