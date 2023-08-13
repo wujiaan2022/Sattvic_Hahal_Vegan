@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import BookingForm
 
+
 def book_table(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)

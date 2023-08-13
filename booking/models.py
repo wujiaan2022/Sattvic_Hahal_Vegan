@@ -10,8 +10,10 @@ class Table(models.Model):
 
     capacity = models.IntegerField(choices=CAPACITY_CHOICES)
 
+    table_name = models.CharField(max_length=10, null=True, blank=True)
+
     def __str__(self):
-        return f"Table for {self.get_capacity_display()}"    
+        return f"Table {self.table_name} - {self.get_capacity_display()}"
 
 
 class Booking(models.Model):
