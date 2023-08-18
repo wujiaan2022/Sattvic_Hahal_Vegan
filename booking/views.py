@@ -1,32 +1,19 @@
 from django.shortcuts import render
-from .forms import BookingForm
+from .models import Booking, Table
+from .forms import BookingForm, CheckAvailabilityForm
 
 
-def book_table(request):
+def check_availability(request):
     if request.method == 'POST':
-        form = BookingForm(request.POST)
+        form = CheckAvailabilityForm(request.POST)
         if form.is_valid():
-            date = form.cleaned_data['date']
-            time = form.cleaned_data['time']
-            party_size = form.cleaned_data['party_size']
-
-            # Query available tables
-            available_tables = Table.objects.filter(capacity__gte=party_size) \
-                                            .exclude(booking__date=date, booking__time=time)
-
-            # Get the selected table ID
-            selected_table_id = form.cleaned_data['table']
-            selected_table = Table.objects.get(id=selected_table_id)
-
-            # Create a new booking instance and save it
-            booking = Booking(table=selected_table, date=date, time=time, party_size=party_size)
-            booking.save()
-
-            # Redirect to a success page or display a success message
-            return redirect('booking:success')  # Redirect to a success page
+            booking_date = form.cleaned_data['booking_date']
+            booking_time = form.cleaned_data['booking_time']
+            booked_tables = Booking.objects.filter(date=booking_date, time__lte=booking_time).values_list('table_number', flat=True)
+            max_table_number = 10 
+            available_tables = [table_number for table_number in range(1, max_table_number + 1) if table_number not in booked_tables]
+            return render(request, 'booking/availability_result.html', {'available_tables': available_tables})
     else:
-        form = BookingForm()
+        form = CheckAvailabilityForm()
+    return render(request, 'booking/check_availability.html', {'form': form})
 
-    context = {'form': form}
-    
-    return render(request, 'booking/booking_form.html', context)

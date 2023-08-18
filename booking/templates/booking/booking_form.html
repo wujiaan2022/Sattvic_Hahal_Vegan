@@ -2,19 +2,37 @@
 
 {% block content %}
 
-<h3>Available Tables:</h3>
-    <ul>
-        {% for table in available_tables %}
-            <li>{{ table.name }} (Capacity: {{ table.capacity }})</li>
-        {% endfor %}
-    </ul>
-
-  <h2>Book a Table</h2>
+<div id="initial-form-section">
   <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}    
-
-    <button type="submit">Book</button>
+      {% csrf_token %}
+      {{ CheckAvailabilityForm }}
+      <button type="button" onclick="showTableAvailability()">Check Availability</button>
   </form>
+</div>
+
+<div id="table-availability-section" style="display: none;">
+  <h2>Available Tables</h2>
+  <ul>
+      {% for table_number in available_tables %}
+          <li>
+              Table Number: {{ table_number }}
+              <button type="button" onclick="showBookingForm({{ table_number }})">Book this Table</button>
+          </li>
+      {% endfor %}
+  </ul>
+</div>
+
+<div id="booking-form-section" style="display: none;">
+  <form method="post">
+      {% csrf_token %}
+      <!-- Only display the form fields relevant to the customer -->
+      {{ booking_form.party_size }}
+      {{ booking_form.name }}
+      {{ booking_form.email }}
+      {{ booking_form.phone }}
+      <input type="hidden" name="selected_table" id="selected-table-number" value="">
+      <button type="submit">Book Now</button>
+  </form>
+</div>
 
 {% endblock %}

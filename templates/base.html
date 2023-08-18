@@ -24,9 +24,7 @@
     {% block extra_css %}
     {% endblock %}
 
-    {% block corejs %}
-
-        {% comment %} <script src="{% static 'js/scripts.js' %}"></script> {% endcomment %}
+    {% block corejs %}        
 
         <script src="https://kit.fontawesome.com/34d7a126b9.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -35,7 +33,8 @@
     {% endblock %}
 
     {% block extra_js %}
-        <script src="{% static 'js/scripts.js' %}"></script>
+        <script src="{% static 'js/autoPicsChanging.js' %}"></script>
+        <script src="{% static 'js/booking.js' %}"></script>
     {% endblock %}
 
     <title>Sattvic Halal & Vegan{% block extra_title %}{% endblock %}</title>

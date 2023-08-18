@@ -2,6 +2,11 @@ from django import forms
 from .models import Booking, Table
 
 
+class CheckAvailabilityForm(forms.Form):
+    booking_date = forms.DateField()
+    booking_time = forms.TimeField()
+    
+
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
