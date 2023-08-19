@@ -5,7 +5,7 @@
 <div id="initial-form-section">
   <form method="post">
       {% csrf_token %}
-      {{ CheckAvailabilityForm }}
+      {{ form.as_p }}
       <button type="button" onclick="showTableAvailability()">Check Availability</button>
   </form>
 </div>

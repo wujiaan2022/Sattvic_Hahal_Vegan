@@ -1,17 +1,30 @@
 from django import forms
 from .models import Booking, Table
+from django.contrib import admin
 
 
-class CheckAvailabilityForm(forms.Form):
-    booking_date = forms.DateField()
-    booking_time = forms.TimeField()
+COMMON_TIME_CHOICES = [
+    ('12:00', 'Lunch Time'),
+    ('18:00', 'Dinner Time'),
+]
+
+
+class check_availability_form(forms.Form):
+    booking_date = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date'})
+    )
+    booking_time = forms.ChoiceField(choices=COMMON_TIME_CHOICES)
     
 
-class BookingForm(forms.ModelForm):
+class BookingAdminForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['table', 'date', 'time', 'party_size', 'name', 'email', 'phone']
-
+        # fields = ['table', 'date', 'time', 'party_size', 'name', 'email', 'phone']
+        fields = '__all__'
     widgets = {
         'date': forms.DateInput(attrs={'type': 'date'}),
+        'time': forms.Select(choices=COMMON_TIME_CHOICES),
+        
     }
+    
+
