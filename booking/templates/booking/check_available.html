@@ -3,39 +3,24 @@
 {% block content %}
 
 <div id="initial-form-section">
-  <form method="post">
+  <form method="get" action="{% url 'show_available' %}">
       {% csrf_token %}
       {{ form.as_p }}
-      <a href="{% url 'show_available' %}">
-        <button type="button">Check Availability</button>
-      </a>
-      
+      <input type="text" id="from-datepicker" name="date"/>
+      <button type="submit">Check Availability</button>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+      <script> 
+        $(document).ready(function() {     
+          $("#from-datepicker").datepicker({          
+            format: 'yyyy-mm-dd'
+          });      
+        });  
+      </script>
   </form>
 </div>
 
-{% comment %} <div id="table-availability-section" style="display: none;">
-  <h2>Available Tables</h2>
-  <ul>
-      {% for table_name in available_tables %}
-          <li>
-            table_name: {{ table_name }}
-              <button type="button" onclick="showBookingForm({{ table_name }})">Book this Table</button>
-          </li>
-      {% endfor %}
-  </ul>
-</div>
 
-<div id="booking-form-section" style="display: none;">
-  <form method="post">
-      {% csrf_token %}
-      <!-- Only display the form fields relevant to the customer -->
-      {{ booking_form.party_size }}
-      {{ booking_form.name }}
-      {{ booking_form.email }}
-      {{ booking_form.phone }}
-      <input type="hidden" name="selected_table" id="selected-table-number" value="">
-      <button type="submit">Book Now</button>
-  </form>
-</div> {% endcomment %}
 
 {% endblock %}

@@ -2,14 +2,12 @@
 
 {% block content %}
 
-
-
-<div id="table-availability-section" style="display: none;">
+<div id="table-availability-section">
   <h2>Available Tables</h2>
   <ul>
-      {% for table_name in available_tables %}
+      {% for table in available_tables %}
           <li>
-            table_name: {{ table_name }}
+            table: {{ table_name }}
               <button type="button" onclick="">Book this Table</button>
           </li>
       {% endfor %}
