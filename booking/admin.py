@@ -1,11 +1,12 @@
 from django.contrib import admin
 from .models import Table
 from .models import Booking
-from .forms import BookingAdminForm
+# from .forms import BookingAdminForm, BookingAdmin
+from .forms import BookingAdmin
 
 
-class BookingAdmin(admin.ModelAdmin):
-    form = BookingAdminForm
+# class BookingAdmin(admin.ModelAdmin):
+#     form = BookingAdminForm
 
 
 admin.site.register(Table)

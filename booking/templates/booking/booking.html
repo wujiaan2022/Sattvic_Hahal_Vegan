@@ -13,10 +13,10 @@
 <div id="table-availability-section" style="display: none;">
   <h2>Available Tables</h2>
   <ul>
-      {% for table_number in available_tables %}
+      {% for table_name in available_tables %}
           <li>
-              Table Number: {{ table_number }}
-              <button type="button" onclick="showBookingForm({{ table_number }})">Book this Table</button>
+            table_name: {{ table_name }}
+              <button type="button" onclick="showBookingForm({{ table_name }})">Book this Table</button>
           </li>
       {% endfor %}
   </ul>

@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Booking, Table
-from .forms import BookingAdminForm, check_availability_form
+# from .forms import BookingAdminForm, check_availability_form
+from .forms import check_availability_form
+
 
 
 def check_availability(request):
