@@ -2,13 +2,7 @@
 
 {% block content %}
 
-<div id="initial-form-section">
-  <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="button" onclick="showTableAvailability()">Check Availability</button>
-  </form>
-</div>
+
 
 <div id="table-availability-section" style="display: none;">
   <h2>Available Tables</h2>
@@ -16,13 +10,13 @@
       {% for table_name in available_tables %}
           <li>
             table_name: {{ table_name }}
-              <button type="button" onclick="showBookingForm({{ table_name }})">Book this Table</button>
+              <button type="button" onclick="">Book this Table</button>
           </li>
       {% endfor %}
   </ul>
 </div>
 
-<div id="booking-form-section" style="display: none;">
+{% comment %} <div id="booking-form-section" style="display: none;">
   <form method="post">
       {% csrf_token %}
       <!-- Only display the form fields relevant to the customer -->
@@ -33,6 +27,6 @@
       <input type="hidden" name="selected_table" id="selected-table-number" value="">
       <button type="submit">Book Now</button>
   </form>
-</div>
+</div> {% endcomment %}
 
 {% endblock %}

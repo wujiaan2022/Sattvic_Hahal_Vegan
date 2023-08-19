@@ -1,6 +1,6 @@
 function showTableAvailability() {
     // Hide the initial form section
-    document.getElementById("initial-form-section").style.display = "none";
+    // document.getElementById("initial-form-section").style.display = "none";
     
     // Show the table availability section
     document.getElementById("table-availability-section").style.display = "block";

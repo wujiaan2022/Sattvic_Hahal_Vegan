@@ -7,4 +7,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
     path('booking/', include('booking.urls')),
+    # path('booking/', include('booking.urls')),
 ]
