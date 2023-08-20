@@ -4,8 +4,8 @@ from django.contrib import admin
 
 
 TIME_CHOICES = [
-    ('12:00 for Lunch', 'Lunch Time'),
-    ('18:00 for Dinner', 'Dinner Time'),]
+    ('12:00 for Lunch', '12:00 Lunch Time'),
+    ('18:00 for Dinner', '18:00 Dinner Time'),]
 
 
 class check_availability_form(forms.Form):

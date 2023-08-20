@@ -2,13 +2,25 @@
 
 {% block content %}
 
+{% comment %} <div id="table-availability-section">
+  <h2>Available Tables</h2>
+  <ul>
+      {% for table_name in available_table_names %}
+          <li>
+            Table: {{ table_name }}
+            <button type="button" onclick="">Book this Table</button>
+          </li>
+      {% endfor %}
+  </ul>
+</div> {% endcomment %}
+
 <div id="table-availability-section">
   <h2>Available Tables</h2>
   <ul>
       {% for table in available_tables %}
           <li>
-            table: {{ table_name }}
-              <button type="button" onclick="">Book this Table</button>
+            Table: {{ table.table_name }} (Capacity: {{ table.capacity|capfirst }})
+            <button type="button" onclick="">Book this Table</button>
           </li>
       {% endfor %}
   </ul>

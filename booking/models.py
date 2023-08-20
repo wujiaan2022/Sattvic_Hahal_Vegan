@@ -19,8 +19,8 @@ class Table(models.Model):
 class Booking(models.Model):
     
     TIME_CHOICES = [
-    ('12:00 for Lunch', 'Lunch Time'),
-    ('18:00 for Dinner', 'Dinner Time'),]
+    ('12:00 for Lunch', '12:00 Lunch Time'),
+    ('18:00 for Dinner', '18:00 Dinner Time'),]
     
     name = models.CharField(max_length=100)  
     email = models.EmailField()             
