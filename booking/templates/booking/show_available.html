@@ -2,41 +2,46 @@
 
 {% block content %}
 
-{% comment %} <div id="table-availability-section">
-  <h2>Available Tables</h2>
-  <ul>
-      {% for table_name in available_table_names %}
-          <li>
-            Table: {{ table_name }}
-            <button type="button" onclick="">Book this Table</button>
-          </li>
-      {% endfor %}
-  </ul>
-</div> {% endcomment %}
-
 <div id="table-availability-section">
   <h2>Available Tables</h2>
   <ul>
       {% for table in available_tables %}
           <li>
             Table: {{ table.table_name }} (Capacity: {{ table.capacity|capfirst }})
-            <button type="button" onclick="">Book this Table</button>
+            <button type="button" onclick="showBookingForm
+              ('{{ table.table_name }}', '{{ booking_date }}', '{{ booking_time }}')">
+              Book this Table
+            </button>
           </li>
       {% endfor %}
   </ul>
 </div>
 
-{% comment %} <div id="booking-form-section" style="display: none;">
+<div id="booking-form-section" style="display: none;">
   <form method="post">
       {% csrf_token %}
-      <!-- Only display the form fields relevant to the customer -->
-      {{ booking_form.party_size }}
+      {{ booking_form.name.label_tag }}
       {{ booking_form.name }}
+      {{ booking_form.email.label_tag }}
       {{ booking_form.email }}
+      {{ booking_form.phone.label_tag }}
       {{ booking_form.phone }}
+      {{ booking_form.time }}
+      {{ booking_form.table }}
+      {{ booking_form.date }}
       <input type="hidden" name="selected_table" id="selected-table-number" value="">
       <button type="submit">Book Now</button>
   </form>
-</div> {% endcomment %}
+</div> 
+
+{% comment %} <script>
+  function showBookingForm(table) {
+    // Display the booking form section
+    document.getElementById("booking-form-section").style.display = "block";
+    
+    // Set the value of the selected_table input
+    document.getElementById("selected-table").value = table.table_name;
+  }
+  </script> {% endcomment %}
 
 {% endblock %}
