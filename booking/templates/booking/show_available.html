@@ -26,7 +26,7 @@
 </div>
 
 <div id="booking-form-section" style="display: none;">
-  <form method="post" action="">
+  <form method="post" action="{% if booking %}{% url 'booking_confirmation' booking.id %}{% endif %}">
       {% csrf_token %}
       
       {{ booking_form.name.label_tag }}

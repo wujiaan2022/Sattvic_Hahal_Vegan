@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from .models import Booking, Table
 from .forms import check_availability_form, BookingForm
 
@@ -40,23 +40,23 @@ def show_available(request):
                 booking_date = booking_form.cleaned_data['date']
                 booking_time = booking_form.cleaned_data['time']
                 
-                # Create a Booking instance or perform any other actions
-                
-                # Redirect to a success page or return a response
-                return redirect('success_page')  # Replace with the appropriate URL
-                
-            # If form is not valid, re-render the template with errors
-            # The form instance with errors will be used in the template rendering
-            
+                booking = booking_form.save()
+                booking.user = request.user
+                booking.save()
+                # messages.success(request, 'Booking successful.')
+                return redirect('booking_confirmation', booking_id=booking.id)
+            # else:
+            #     messages.error(request, 'Booking date must be in the future.')
         return render(request, 'booking/show_available.html', {
             'available_tables': available_tables,
             'booking_form': booking_form,
+            'booking': None,
         })
     
     else:
-        return render(request, 'booking/show_available.html', {'available_tables': []})
+        return render(request, 'booking/show_available.html', {'available_tables': []})             
+
     
-    
-def booking_confirmation(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id)
+def booking_confirmation(request):
+    booking = get_object_or_404(Booking)
     return render(request, 'booking_confirmation.html', {'booking': booking})
