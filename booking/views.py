@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Booking, Table
 from .forms import check_availability_form, BookingForm
 
@@ -55,3 +55,8 @@ def show_available(request):
     
     else:
         return render(request, 'booking/show_available.html', {'available_tables': []})
+    
+    
+def booking_confirmation(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    return render(request, 'booking_confirmation.html', {'booking': booking})

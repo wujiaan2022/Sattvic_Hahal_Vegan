@@ -26,7 +26,7 @@
 </div>
 
 <div id="booking-form-section" style="display: none;">
-  <form method="post">
+  <form method="post" action="">
       {% csrf_token %}
       
       {{ booking_form.name.label_tag }}
@@ -45,15 +45,5 @@
       <button type="submit">Book Now</button>
   </form>
 </div> 
-
-{% comment %} <script>
-  function showBookingForm(table) {
-    // Display the booking form section
-    document.getElementById("booking-form-section").style.display = "block";
-    
-    // Set the value of the selected_table input
-    document.getElementById("selected-table").value = table.table_name;
-  }
-  </script> {% endcomment %}
 
 {% endblock %}
