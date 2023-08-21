@@ -2,6 +2,14 @@
 
 {% block content %}
 
+<div id="user-auth-section">
+  {% if user.is_authenticated %}
+      <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+  {% else %}
+      <p>Not logged in. <a href="{% url 'login' %}">Login</a> or continue as guest.</p>
+  {% endif %}
+</div>
+
 <div id="table-availability-section">
   <h2>Available Tables</h2>
   <ul>
@@ -20,15 +28,19 @@
 <div id="booking-form-section" style="display: none;">
   <form method="post">
       {% csrf_token %}
+      
       {{ booking_form.name.label_tag }}
       {{ booking_form.name }}
       {{ booking_form.email.label_tag }}
       {{ booking_form.email }}
       {{ booking_form.phone.label_tag }}
       {{ booking_form.phone }}
+      {{ booking_form.party_size.label_tag }}
+      {{ booking_form.party_size }}
       {{ booking_form.time }}
       {{ booking_form.table }}
       {{ booking_form.date }}
+      
       <input type="hidden" name="selected_table" id="selected-table-number" value="">
       <button type="submit">Book Now</button>
   </form>

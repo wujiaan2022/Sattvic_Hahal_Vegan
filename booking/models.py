@@ -25,7 +25,7 @@ class Booking(models.Model):
     name = models.CharField(max_length=100)  
     email = models.EmailField()             
     phone = models.CharField(max_length=20)  
-    # party_size = models.IntegerField()
+    party_size = models.IntegerField(null=True, blank=True)
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
     date = models.DateField()
     time = models.CharField(max_length=20, choices=TIME_CHOICES)     

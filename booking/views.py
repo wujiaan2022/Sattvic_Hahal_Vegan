@@ -15,12 +15,21 @@ def show_available(request):
     if booking_date and booking_time:
         booked_table_numbers = Booking.objects.filter(date=booking_date, time=booking_time).values_list('table_id', flat=True)
      
-        available_tables = Table.objects.exclude(id__in=booked_table_numbers)        
+        available_tables = Table.objects.exclude(id__in=booked_table_numbers)
         
-        booking_form = BookingForm(initial={'time': booking_time, 'date': booking_date})
-    
+        initial_data = {'time': booking_time, 'date': booking_date}
+
+        if request.user.is_authenticated:
+            user = request.user
+            if user.username:
+                initial_data['name'] = user.username
+            if user.email:
+                initial_data['email'] = user.email            
+
+        booking_form = BookingForm(initial=initial_data)
+
         if request.method == 'POST':
-            booking_form = BookingForm(request.POST)  # Bind the form with POST data
+            booking_form = BookingForm(request.POST)        
             
             if booking_form.is_valid():
                 # Process the form data

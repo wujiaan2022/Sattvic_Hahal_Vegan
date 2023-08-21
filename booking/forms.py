@@ -12,13 +12,23 @@ class BookingForm(forms.Form):
     
     name = forms.CharField(max_length=100)
     email = forms.EmailField()
-    phone = forms.CharField(max_length=15)
+    phone = forms.CharField(max_length=15, required=False)
     time = forms.ChoiceField(
         choices=TIME_CHOICES,
         widget=forms.Select(attrs={'id': 'booking-time', 'style': 'display:none;'})
     )
     table = forms.CharField(widget=forms.HiddenInput(attrs={'id': 'booking-table'}))
     date = forms.DateField(widget=forms.HiddenInput(attrs={'id': 'booking-date'}))
+    party_size = forms.IntegerField()
+    
+
+# class BookingForm(forms.Form):
+#     time = forms.ChoiceField(
+#         choices=TIME_CHOICES,
+#         widget=forms.Select(attrs={'id': 'booking-time', 'style': 'display:none;'})
+#     )
+#     table = forms.CharField(widget=forms.HiddenInput(attrs={'id': 'booking-table'}))
+#     date = forms.DateField(widget=forms.HiddenInput(attrs={'id': 'booking-date'}))
 
 
 class check_availability_form(forms.Form):
