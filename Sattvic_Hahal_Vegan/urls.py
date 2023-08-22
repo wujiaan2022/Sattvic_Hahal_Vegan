@@ -11,5 +11,6 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('summernote/', include('django_summernote.urls')),
+    path('blog/', include('blog.urls')),
     
 ]
