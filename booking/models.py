@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 import uuid
 
@@ -23,9 +24,15 @@ class Booking(models.Model):
     ('12:00 for Lunch', '12:00 Lunch Time'),
     ('18:00 for Dinner', '18:00 Dinner Time'),]
     
+    user = models.ForeignKey(User,
+                             null=True,
+                             blank=True,
+                             default=None,
+                             on_delete=models.CASCADE)
+    
     name = models.CharField(max_length=100)  
     email = models.EmailField()             
-    phone = models.CharField(max_length=20)  
+    phone = models.CharField(max_length=20, null=True, blank=True)  
     party_size = models.IntegerField(null=True, blank=True)
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
     date = models.DateField()

@@ -8,39 +8,35 @@ TIME_CHOICES = [
     ('18:00 for Dinner', '18:00 Dinner Time'),]
 
 
-class BookingForm(forms.Form):    
-    
-    name = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    phone = forms.CharField(max_length=15, required=False)
-    time = forms.ChoiceField(
-        choices=TIME_CHOICES,
-        widget=forms.Select(attrs={'id': 'booking-time', 'style': 'display:none;'})
-    )
-    table = forms.CharField(widget=forms.HiddenInput(attrs={'id': 'booking-table'}))
-    date = forms.DateField(widget=forms.HiddenInput(attrs={'id': 'booking-date'}))
-    party_size = forms.IntegerField()
-    
-
-# class BookingForm(forms.Form):
-#     time = forms.ChoiceField(
-#         choices=TIME_CHOICES,
-#         widget=forms.Select(attrs={'id': 'booking-time', 'style': 'display:none;'})
-#     )
-#     table = forms.CharField(widget=forms.HiddenInput(attrs={'id': 'booking-table'}))
-#     date = forms.DateField(widget=forms.HiddenInput(attrs={'id': 'booking-date'}))
+class BookingForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = [
+            'user',
+            'name',
+            'email',
+            'phone',
+            'time',
+            'table',
+            'date',
+            'party_size',
+        ]
+        widgets = {
+            'time': forms.Select(attrs={'id': 'booking-time', 'style': 'display:none;'}),
+            'table': forms.HiddenInput(attrs={'id': 'booking-table'}),
+            'date': forms.HiddenInput(attrs={'id': 'booking-date'}),
+        }
 
 
-class check_availability_form(forms.Form):
-    # booking_date = forms.DateField(
-    #     # widget=forms.DateInput(attrs={'type': 'date',})
-    # )
-    time = forms.ChoiceField(choices=TIME_CHOICES)
+class check_availability_form(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = ['time']
     
 
 class BookingAdmin(admin.ModelAdmin):
     model = Booking
     # fields = '__all__'
-    fields = ['table', 'date', 'time', 'party_size', 'name', 'email', 'phone']
+    fields = ['user', 'table', 'date', 'time', 'party_size', 'name', 'email', 'phone']
     
 

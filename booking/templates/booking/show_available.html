@@ -26,8 +26,19 @@
 </div>
 
 <div id="booking-form-section" style="display: none;">
-  <form method="post" action="{% if booking %}{% url 'booking_confirmation' booking.id %}{% endif %}">
+  <form method="post" action="">
       {% csrf_token %}
+
+      <label for="selected-table-number">You have chosen this Table:</label>
+      <input  name="selected_table" id="selected-table-number" value="" disabled>
+
+      <label for="selected-date">You have chosen this Date:</label>
+      <input name="selected_date" id="selected-date" value="{{ booking_date }}" disabled>
+
+      <label for="selected-time">You have chosen this Time:</label>
+      <input name="selected_time" id="selected-time" value="{{ booking_time }}" disabled>
+
+      <h5>To book a Table Please fill in the Form</h5>
       
       {{ booking_form.name.label_tag }}
       {{ booking_form.name }}
@@ -39,9 +50,8 @@
       {{ booking_form.party_size }}
       {{ booking_form.time }}
       {{ booking_form.table }}
-      {{ booking_form.date }}
+      {{ booking_form.date }}      
       
-      <input type="hidden" name="selected_table" id="selected-table-number" value="">
       <button type="submit">Book Now</button>
   </form>
 </div> 

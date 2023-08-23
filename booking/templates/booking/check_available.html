@@ -13,8 +13,13 @@
 <div id="initial-form-section">
   <form method="get" action="{% url 'show_available' %}">
       {% csrf_token %}
-      {{ form.as_p }}
+      
+      <label for="from-datepicker">Please choose a date:</label>
       <input type="text" id="from-datepicker" name="date"/>
+        
+      <label for="{{ form.time.id_for_label }}">Please choose a time:</label>
+      {{ form.time }}
+        
       <button type="submit">Check Availability</button>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
