@@ -22,11 +22,11 @@ class BookingForm(forms.ModelForm):
             'party_size',
         ]
         widgets = {
-            'time': forms.Select(attrs={'id': 'booking-time', 'style': 'display:none;'}),
-            'table': forms.HiddenInput(attrs={'id': 'booking-table'}),
+            'time': forms.Select(attrs={'id': 'selected-time', 'style': 'display:none;'}),
+            'table': forms.HiddenInput(attrs={'id': 'selected-table'}),
             'date': forms.HiddenInput(attrs={'id': 'booking-date'}),
         }
-
+       
 
 class check_availability_form(forms.ModelForm):
     class Meta:
