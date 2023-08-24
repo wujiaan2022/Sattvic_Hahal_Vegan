@@ -16,51 +16,12 @@
       {% for table in available_tables %}
           <li>
             Table: {{ table.table_name }} (Capacity: {{ table.capacity|capfirst }})
-            <button type="submit" onclick="showBookingForm
-              ('{{ table.table_name }}', '{{ booking_date }}', '{{ booking_time }}')">
+            <a href="{% url 'create_booking' table.id booking_date booking_time %}" class="btn btn-primary">
               Book this Table
-            </button>
+            </a>
           </li>
       {% endfor %}
   </ul>
 </div>
-
-<div id="booking-form-section" style="display: none;">
-  <form method="post" action="">
-      {% csrf_token %}
-
-      {% comment %} <input type="hidden" name="table" id="selected-table">
-      <input type="hidden" name="date" id="selected-date">
-      <input type="hidden" name="time" id="selected-time"> {% endcomment %}
-
-      <label for="selected-table">You have chosen this Table:</label>
-      <input  name="table" id="selected-table" value="{{ table.table_name }}" disabled>
-
-      <label for="selected-date">You have chosen this Date:</label>
-      <input name="date" id="selected-date" value="{{ booking_date }}" disabled>
-
-      <label for="selected-time">You have chosen this Time:</label>
-      <input name="time" id="selected-time" value="{{ booking_time }}" disabled>
-
-      <h5>To book a Table Please fill in the Form</h5>
-      
-      {{ booking_form.name.label_tag }}
-      {{ booking_form.name }}
-      {{ booking_form.email.label_tag }}
-      {{ booking_form.email }}
-      {{ booking_form.phone.label_tag }}
-      {{ booking_form.phone }}
-      {{ booking_form.party_size.label_tag }}
-      {{ booking_form.party_size }}
-     
-      {{ booking_form.time }}
-     
-      {{ booking_form.table }}
-      
-      {{ booking_form.date }}      
-      
-      <button type="submit">Book Now</button>
-  </form>
-</div> 
 
 {% endblock %}
