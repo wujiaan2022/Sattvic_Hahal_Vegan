@@ -22,9 +22,7 @@ class BookingForm(forms.ModelForm):
             'party_size',
         ]
         # widgets = {
-        #     'time': forms.Select(attrs={'id': 'selected-time', 'style': 'display:none;'}),
-        #     'table': forms.HiddenInput(attrs={'id': 'selected-table'}),
-        #     'date': forms.HiddenInput(attrs={'id': 'booking-date'}),
+        #    
         # }
        
 

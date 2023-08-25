@@ -10,26 +10,32 @@
   {% endif %}
 </div>
 
-<div id="booking-form-section">
+<div id="crate-booking-section">
   <form method="post" action="">
       {% csrf_token %}
 
       <h5>To book a Table Please fill in the Form</h5>
+
+      <p>Selected Table: {{ table.table_name }} (ID: {{ table.id }}), Capacity: {{ table.capacity }}</p>
+      <p>Selected Date: {{ booking_date }}</p>
+      <p>Selected Time: {{ booking_time }}</p>
       
-      {{ booking_form.name.label_tag }}
-      {{ booking_form.name }}
-      {{ booking_form.email.label_tag }}
-      {{ booking_form.email }}
-      {{ booking_form.phone.label_tag }}
-      {{ booking_form.phone }}
-      {{ booking_form.party_size.label_tag }}
-      {{ booking_form.party_size }}
-     
-      {{ booking_form.time }}
-     
-      {{ booking_form.table }}
+      <p>Table ID: {{ table.id }}, booking_date: {{ booking_date }}, booking_time: {{ booking_time }}</p>
       
-      {{ booking_form.date }}      
+      {{ form.name.label_tag }}
+      {{ form.name }}
+      {{ form.email.label_tag }}
+      {{ form.email }}
+      {{ form.phone.label_tag }}
+      {{ form.phone }}
+      {{ form.party_size.label_tag }}
+      {{ form.party_size }}
+      {{ form.time.label_tag }}
+      {{ form.time }}
+      {{ form.table.label_tag }}
+      {{ form.table }}
+      {{ form.date.label_tag }}
+      {{ form.date }}      
       
       <button type="submit">Book Now</button>
   </form>
