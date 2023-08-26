@@ -52,12 +52,14 @@ def booking_form(request, table_id, booking_date, booking_time):
                 except Exception as e:
                     print("Error while saving booking:", e)
                 
-                return redirect('booking_confirmation', table_id=table.id, booking_date=booking_date, booking_time=booking_time,
-                                name=request.user.username, email=request.user.email)
+                # messages.success(request, 'Booking successful! Your table is reserved.')
+       
+                return redirect('home')
             else:
-                print("Form is NOT valid:", form.errors.as_data())
+                print("Form is NOT valid:", form.errors.as_data()) 
         else:
-            form = BookingForm(initial=initial_data)
+            form = BookingForm(initial=initial_data)   
+    
     else:
         if request.method == 'POST':
             form = BookingForm(request.POST)
@@ -75,13 +77,15 @@ def booking_form(request, table_id, booking_date, booking_time):
                 except Exception as e:
                     print("Error while saving booking:", e)
                 
-                return redirect('booking_confirmation', table_id=table.id, booking_date=booking_date, booking_time=booking_time,
-                                name=booking.name, email=booking.email, phone=booking.phone)
-    
+                # messages.success(request, 'Booking successful! Your table is reserved.')
+                
+                return redirect('home')
+            else:
+                print("Form is NOT valid:", form.errors.as_data())   
+        else:
+            form = BookingForm(initial=initial_data)  # Initialize the form with initial data
+
     return render(request, 'booking/booking_form.html', {'form': form, 'table': table, 'booking_date': booking_date, 'booking_time': booking_time})
-
-
-    
 
 
 def booking_confirmation(request, table_id, booking_date, booking_time):
@@ -101,5 +105,6 @@ def booking_confirmation(request, table_id, booking_date, booking_time):
         }
         return render(request, 'booking/booking_confirmation.html', {'booking': booking})
     else:
-        url = reverse('booking_form', args=[table_id, booking_date, booking_time])
-        return redirect(url)
+        # url = reverse('booking_form', args=[table_id, booking_date, booking_time])
+        # return redirect(url)
+        return redirect('booking_form', table_id=table.id, booking_date=booking_date, booking_time=booking_time)
