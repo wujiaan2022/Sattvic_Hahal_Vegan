@@ -11,7 +11,7 @@
 </div>
 
 <div id="crate-booking-section">
-  <form method="post" action="">
+  <form method="post" action="{% url 'booking_confirmation' table_id=table.id booking_date=booking_date booking_time=booking_time %}">
       {% csrf_token %}
 
       <h5>To book a Table Please fill in the Form</h5>

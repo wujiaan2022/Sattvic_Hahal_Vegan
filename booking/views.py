@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
+from django.urls import reverse
 from .models import Booking, Table
 from .forms import check_availability_form, BookingForm
 from datetime import datetime
@@ -82,18 +83,23 @@ def booking_form(request, table_id, booking_date, booking_time):
 
     
 
-    
-
 
 def booking_confirmation(request, table_id, booking_date, booking_time):
-    table = Table.objects.get(id=table_id)
-    booking = {
-        'table': table,
-        'date': booking_date,
-        'time': booking_time,
-        'name': name,
-        'email': email,
-        'phone': phone,
-        
-    }
-    return render(request, 'booking/confirmation.html', {'booking': booking})        
+    if request.method == 'POST':
+        table = Table.objects.get(id=table_id)
+        name = request.POST.get('name')  # Retrieve name from the form
+        email = request.POST.get('email')  # Retrieve email from the form
+        phone = request.POST.get('phone')  # Retrieve phone from the form
+
+        booking = {
+            'table': table,
+            'date': booking_date,
+            'time': booking_time,
+            'name': name,
+            'email': email,
+            'phone': phone,        
+        }
+        return render(request, 'booking/booking_confirmation.html', {'booking': booking})
+    else:
+        url = reverse('booking_form', args=[table_id, booking_date, booking_time])
+        return redirect(url)

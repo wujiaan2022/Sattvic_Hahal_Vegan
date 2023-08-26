@@ -11,6 +11,6 @@
     <p>Time: {{ booking.time }}</p>
     <p>Table: {{ booking.table_name }}</p>    
 
-    <a href="{% url 'generate_pdf' booking.id %}" class="btn btn-primary">Download PDF</a>
+    {% comment %} <a href="{% url 'generate_pdf' booking.id %}" class="btn btn-primary">Download PDF</a> {% endcomment %}
         
 {% endblock %}
