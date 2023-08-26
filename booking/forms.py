@@ -24,6 +24,14 @@ class BookingForm(forms.ModelForm):
         # widgets = {
         #    
         # }
+        
+    # def __init__(self, *args, **kwargs):
+    #     initial_data = kwargs.get('initial', {})
+    #     initial_data.setdefault('time', '18:00 for Dinner')  # Set default time
+    #     initial_data.setdefault('table', 'Table A1')  # Set default table
+    #     initial_data.setdefault('date', '2023-12-25')  # Set default date
+    #     kwargs['initial'] = initial_data
+    #     super().__init__(*args, **kwargs)
        
 
 class check_availability_form(forms.ModelForm):

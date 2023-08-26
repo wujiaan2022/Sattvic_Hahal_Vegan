@@ -31,11 +31,24 @@ def show_available(request):
 def booking_form(request, table_id, booking_date, booking_time):
     
     table = Table.objects.get(id=table_id)
-#   
+    
+    # initial_data = {'table': table}
+    
+    # booking_date = datetime.strptime(booking_date, '%Y-%m-%d').date()
+    # initial_data = {'date': booking_date}
+    
+    # selected_time = None
+    # for choice_value, choice_label in Booking.TIME_CHOICES:
+    #     if choice_label == booking_time:
+    #         selected_time = choice_value
+    #         break
+
+    # if selected_time:
+    #     initial_data = {'time': selected_time}
     
     if request.user.is_authenticated:
         user = request.user
-        initial_data = {'name': user.username, 'email': user.email}
+        initial_data = {'name': user.username, 'email': user.email, 'table': table, 'date': booking_date, 'time':booking_time}
     # else:
     #     initial_data = {}
 
@@ -63,7 +76,6 @@ def booking_form(request, table_id, booking_date, booking_time):
     
     return render(request, 'booking/booking_form.html', 
                   {'table': table, 'form': form, 'booking_date': booking_date, 'booking_time': booking_time})
-
 
 
 def booking_confirmation(request, table_id, booking_date, booking_time):
