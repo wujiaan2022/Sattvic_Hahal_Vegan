@@ -140,6 +140,8 @@ body {
   /* position: absolute; */
   color: rgb(1, 83, 96);
   text-align: center;
+  line-height: 1.5; 
+  letter-spacing: 1.5px; 
    
   /* transition: none;
   animation: none; */
@@ -228,6 +230,44 @@ body {
     grid-area: benefit;
     background-color:rgb(234, 230, 250) ;
   }
+
+
+
+  /* CSS to style the messages and close button */
+.messages {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.message.success {
+  border-color: #2ecc71;
+  background-color: #c1f7d8;
+  color: rgb(1, 83, 96);
+}
+
+.message.error {
+  border-color: #e74c3c;
+  background-color: #f2dede;
+}
+
+.close {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
   
 
   

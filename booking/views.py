@@ -3,6 +3,7 @@ from django.urls import reverse
 from .models import Booking, Table
 from .forms import check_availability_form, BookingForm
 from datetime import datetime
+from django.contrib import messages
 
 
 def check_available(request):
@@ -42,9 +43,9 @@ def booking_form(request, table_id, booking_date, booking_time):
             if form.is_valid():
                 booking = form.save(commit=False)
                 booking.user = request.user
-                booking.date = booking_date
-                booking.time = booking_time
-                booking.name = request.user.username                 
+                # booking.date = booking_date
+                # booking.time = booking_time
+                # booking.name = request.user.username                 
                 
                 try:
                     booking.save()
@@ -52,7 +53,7 @@ def booking_form(request, table_id, booking_date, booking_time):
                 except Exception as e:
                     print("Error while saving booking:", e)
                 
-                # messages.success(request, 'Booking successful! Your table is reserved.')
+                messages.success(request, 'Booking successful! Your table is reserved.')
        
                 return redirect('home')
             else:
