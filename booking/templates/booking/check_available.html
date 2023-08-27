@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
+
 
 <div id="user-auth-section">
   {% if user.is_authenticated %}
@@ -12,8 +15,9 @@
 
 <div id="initial-form-section">
   <form method="get" action="{% url 'show_available' %}">
-      {% csrf_token %}
-      
+    {% comment %} {{ form|crispy }}   {% endcomment %}
+    {% csrf_token %}
+            
       <label for="from-datepicker">Please choose a date:</label>
       <input type="text" id="from-datepicker" name="date"/>
         

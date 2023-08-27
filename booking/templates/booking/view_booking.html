@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="table-responsive-sm">
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Logged in User</th>
+                <th scope="col">Booking id</th>
+                <th scope="col">Customer name</th>
+                <th scope="col">Reservation date and time</th>
+                <th scope="col">Phone number</th>
+                <th scope="col">Number of guests</th>
+                <th scope="col">Edit booking</th>
+                <th scope="col">Delete booking</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+
+            <tr>
+                <th scope="row"></th>
+                <td>{{ user.username }}</td>
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.name }}</td>
+                <td>{{ booking.date }}</td>
+                <td>{{ booking.time }}</td>
+                <td>{{ booking.phone }}</td>
+                <td>{{ booking.capacity}}</td>
+                <td>
+                    <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl"
+                            href="/edit/{{ booking.id }}">Edit
+                            Booking</a></div>
+                </td>
+                <td>
+                    <div class="intro-button mx-auto"><a class="btn btn-primary btn-danger btn-xl"
+                            href="/delete/{{ booking.id }}">Delete Booking</a></div>
+                </td>
+            </tr>
+
+        </tbody>
+        {% endfor %}
+        {% csrf_token %}
+    </table>
+</div>
+{% endblock content %}

@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
 
 {% block content %}
+
 
 <div id="user-auth-section">
   {% if user.is_authenticated %}
@@ -18,7 +21,7 @@
           Table: {{ table.table_name }} (Capacity: {{ table.capacity|capfirst }})
           <!-- Display the variables to check their values -->
           <p>Table ID: {{ table.id }}, Booking Date: {{ booking_date }}, Booking Time: {{ booking_time }}</p>
-          <a href="{% url 'booking_form' table.id booking_date booking_time %}" class="btn btn-primary">
+          <a href="{% url 'add_booking' table.id booking_date booking_time %}" class="btn btn-primary">
               Book this Table
           </a>
       </li>

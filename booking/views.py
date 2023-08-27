@@ -29,7 +29,7 @@ def show_available(request):
                 }) 
   
 
-def booking_form(request, table_id, booking_date, booking_time):
+def add_booking(request, table_id, booking_date, booking_time):
     table = Table.objects.get(id=table_id)
     initial_data = {'table': table, 'date': booking_date, 'time': booking_time}
 
@@ -52,7 +52,7 @@ def booking_form(request, table_id, booking_date, booking_time):
                 
                 messages.success(request, 'Booking successful! Your table is reserved.')
        
-                return redirect('home')
+                return redirect('view_booking')
             else:
                 print("Form is NOT valid:", form.errors.as_data()) 
         else:
@@ -78,7 +78,27 @@ def booking_form(request, table_id, booking_date, booking_time):
         else:
             form = BookingForm(initial=initial_data) 
 
-    return render(request, 'booking/booking_form.html', {'form': form, 'table': table, 'booking_date': booking_date, 'booking_time': booking_time})
+    return render(request, 'booking/add_booking.html', {'form': form, 'table': table, 'booking_date': booking_date, 'booking_time': booking_time})
+
+
+def view_booking(request):
+    """
+    Function enables user to view a booking after
+    it has been made and added to the database.
+    """
+    bookings = Booking.objects.filter(user__in=[request.user])
+    context = {
+        'bookings': bookings
+    }
+    return render(request, 'booking/view_booking.html', context)
+
+
+
+
+
+
+
+
 
 
 def booking_confirmation(request, table_id, booking_date, booking_time):

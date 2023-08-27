@@ -1,4 +1,4 @@
-
+{% load crispy_forms_tags %}
 {% load static %}
 
 <!doctype html>
@@ -142,6 +142,7 @@
     {% endblock %}
 
     {% block content %}
+        {% load crispy_forms_tags %}
     {% endblock %}
 
     {% block postloadjs %}
@@ -158,7 +159,7 @@
         // Display the date on the webpage
         var dateDisplay = document.getElementById("dateDisplay");
         dateDisplay.textContent = "Today's date is: " + formattedDate;
-    </script>
+    </script>   
 
   </body>
 </html>

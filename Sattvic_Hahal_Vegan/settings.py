@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
     'django_summernote',
     'home',
     'booking',
@@ -70,6 +71,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Sattvic_Hahal_Vegan.urls'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -86,6 +88,11 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            
+            # 'builtins': ['crispy_forms.templatetags.crispy_forms_tags',
+            #              'crispy_forms.templatetags.crispy_forms_fields',] 
+
+            
         },
     },
 ]
@@ -182,3 +189,5 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

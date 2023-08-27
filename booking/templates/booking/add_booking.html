@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
+
 
 <div id="user-auth-section">
   {% if user.is_authenticated %}
@@ -11,8 +14,9 @@
 </div>
 
 <div id="crate-booking-section">
-  <form method="post" action="">
-      {% csrf_token %}
+  <form method="post" action="" >
+    {% comment %} {{ form|crispy }}  {% endcomment %}
+    {% csrf_token %}
 
       <h5>To book a Table Please fill in the Form</h5>
 
