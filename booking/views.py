@@ -42,10 +42,7 @@ def booking_form(request, table_id, booking_date, booking_time):
             
             if form.is_valid():
                 booking = form.save(commit=False)
-                booking.user = request.user
-                # booking.date = booking_date
-                # booking.time = booking_time
-                # booking.name = request.user.username                 
+                booking.user = request.user                               
                 
                 try:
                     booking.save()
@@ -65,12 +62,7 @@ def booking_form(request, table_id, booking_date, booking_time):
         if request.method == 'POST':
             form = BookingForm(request.POST)
             if form.is_valid():
-                booking = form.save(commit=False)
-                booking.date = booking_date
-                booking.time = booking_time
-                booking.name = form.cleaned_data['name']
-                booking.email = form.cleaned_data['email']  
-                booking.phone = form.cleaned_data['phone']    
+                booking = form.save(commit=False)                
                 
                 try:
                     booking.save()
@@ -78,13 +70,13 @@ def booking_form(request, table_id, booking_date, booking_time):
                 except Exception as e:
                     print("Error while saving booking:", e)
                 
-                # messages.success(request, 'Booking successful! Your table is reserved.')
+                messages.success(request, 'Booking successful! Your table is reserved.')
                 
                 return redirect('home')
             else:
                 print("Form is NOT valid:", form.errors.as_data())   
         else:
-            form = BookingForm(initial=initial_data)  # Initialize the form with initial data
+            form = BookingForm(initial=initial_data) 
 
     return render(request, 'booking/booking_form.html', {'form': form, 'table': table, 'booking_date': booking_date, 'booking_time': booking_time})
 
@@ -92,9 +84,9 @@ def booking_form(request, table_id, booking_date, booking_time):
 def booking_confirmation(request, table_id, booking_date, booking_time):
     if request.method == 'POST':
         table = Table.objects.get(id=table_id)
-        name = request.POST.get('name')  # Retrieve name from the form
-        email = request.POST.get('email')  # Retrieve email from the form
-        phone = request.POST.get('phone')  # Retrieve phone from the form
+        name = request.POST.get('name')  
+        email = request.POST.get('email')  
+        phone = request.POST.get('phone')  
 
         booking = {
             'table': table,
