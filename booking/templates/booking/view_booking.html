@@ -6,16 +6,17 @@
 
 
 <div class="table-responsive-sm">
-    <table class="table table-hover table-dark">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th scope="col"></th>
                 <th scope="col">Logged in User</th>
                 <th scope="col">Booking id</th>
                 <th scope="col">Customer name</th>
-                <th scope="col">Reservation date and time</th>
+                <th scope="col">Booking date</th>
+                <th scope="col">Booking time</th>
                 <th scope="col">Phone number</th>
-                <th scope="col">Number of guests</th>
+                
                 <th scope="col">Edit booking</th>
                 <th scope="col">Delete booking</th>
             </tr>
@@ -31,7 +32,7 @@
                 <td>{{ booking.date }}</td>
                 <td>{{ booking.time }}</td>
                 <td>{{ booking.phone }}</td>
-                <td>{{ booking.capacity}}</td>
+                
                 <td>
                     <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl"
                             href="/edit/{{ booking.id }}">Edit

@@ -7,6 +7,6 @@ urlpatterns = [
     path('add/<int:table_id>/<str:booking_date>/<str:booking_time>/', views.add_booking, name='add_booking'),
     path('view/', views.view_booking, name='view_booking'),
     
-    path('confirmation/<int:table_id>/<str:booking_date>/<str:booking_time>/', views.booking_confirmation, name='booking_confirmation'),
+    path('confirm/<int:table_id>/<str:booking_date>/<str:booking_time>/', views.confirm_booking, name='confirm_booking'),
 ]
 
