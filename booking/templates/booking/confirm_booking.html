@@ -4,12 +4,16 @@
 
     <h2>Your Booking Information</h2>
     
-    <p>Name: {{ booking.name }}</p>
+    {% comment %} <p>Name: {{ booking.name }}</p>
     <p>Email: {{ booking.email }}</p>
-    <p>Phone: {{ booking.phone }}</p>
-    <p>Date: {{ booking.date }}</p>
-    <p>Time: {{ booking.time }}</p>
-    <p>Table: {{ booking.table }}</p>    
+    <p>Phone: {{ booking.phone }}</p> {% endcomment %}
+
+    <p>Name: {{ name }}</p>
+    <p>Email: {{ email }}</p>
+    <p>Phone: {{ phone }}</p>
+    <p>Date: {{ booking_date }}</p>
+    <p>Time: {{ booking_time }}</p>
+    <p>Table: {{ table }}</p>    
 
     {% comment %} <a href="{% url 'generate_pdf' booking.id %}" class="btn btn-primary">Download PDF</a> {% endcomment %}
         

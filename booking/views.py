@@ -46,7 +46,7 @@ def add_booking(request, table_id, booking_date, booking_time):
                 
                 try:
                     booking.save()
-                    print('Booking successful.')
+                    print('Booking successful.')                    
                 except Exception as e:
                     print("Error while saving booking:", e)
                 
@@ -71,9 +71,10 @@ def add_booking(request, table_id, booking_date, booking_time):
                     print("Error while saving booking:", e)
                 
                 messages.success(request, 'Booking successful! Your table is reserved.')
+               
+                print("Redirecting to confirm_booking...")
                 
-                return redirect('confirm_booking', table_id=table.id, booking_date=booking_date, booking_time=booking_time,
-                                name=booking.name, email=booking.email, phone=booking.phone)
+                return redirect('confirm_booking', table_id=table.id, booking_date=booking_date, booking_time=booking_time)
 
             else:
                 print("Form is NOT valid:", form.errors.as_data())   
@@ -102,47 +103,44 @@ def confirm_booking(request, table_id, booking_date, booking_time):
         email = request.POST.get('email')  # Retrieve email from the form
         phone = request.POST.get('phone')  # Retrieve phone from the form
 
-        booking = {
-            'table': table,
-            'date': booking_date,
-            'time': booking_time,
-            'name': name,
-            'email': email,
-            'phone': phone,        
-        }
-        return render(request, 'booking/confirm_booking.html', {'booking': booking})
+        # booking = {
+        #     'table': table,
+        #     'date': booking_date,
+        #     'time': booking_time,
+        #     'name': name,
+        #     'email': email,
+        #     'phone': phone,        
+        # }
+        return render(request, 'booking/confirm_booking.html', {'table': table, 'booking_date': booking_date, 'booking_time': booking_time, 'name': name, 'email':email })
     else:
-        # url = reverse('booking_form', args=[table_id, booking_date, booking_time])
-        # return redirect(url)
-        return redirect('add_booking', table_id=table.id, booking_date=booking_date, booking_time=booking_time)
-
-
-
-
-
-
-
-
-
-
-
-def booking_confirmation(request, table_id, booking_date, booking_time):
-    if request.method == 'POST':
         table = Table.objects.get(id=table_id)
-        name = request.POST.get('name')  
-        email = request.POST.get('email')  
-        phone = request.POST.get('phone')  
+        return render(request, 'booking/confirm_booking.html', {'table': table, 'booking_date': booking_date, 'booking_time': booking_time})
+    
 
-        booking = {
-            'table': table,
-            'date': booking_date,
-            'time': booking_time,
-            'name': name,
-            'email': email,
-            'phone': phone,        
-        }
-        return render(request, 'booking/booking_confirmation.html', {'booking': booking})
-    else:
-        # url = reverse('booking_form', args=[table_id, booking_date, booking_time])
-        # return redirect(url)
-        return redirect('booking_form', table_id=table.id, booking_date=booking_date, booking_time=booking_time)
+
+
+
+
+
+
+
+# def booking_confirmation(request, table_id, booking_date, booking_time):
+#     if request.method == 'POST':
+#         table = Table.objects.get(id=table_id)
+#         name = request.POST.get('name')  
+#         email = request.POST.get('email')  
+#         phone = request.POST.get('phone')  
+
+#         booking = {
+#             'table': table,
+#             'date': booking_date,
+#             'time': booking_time,
+#             'name': name,
+#             'email': email,
+#             'phone': phone,        
+#         }
+#         return render(request, 'booking/booking_confirmation.html', {'booking': booking})
+#     else:
+#         # url = reverse('booking_form', args=[table_id, booking_date, booking_time])
+#         # return redirect(url)
+#         return redirect('booking_form', table_id=table.id, booking_date=booking_date, booking_time=booking_time)
