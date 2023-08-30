@@ -1,20 +1,80 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
-    <h2>Your Booking Information</h2>
+    <h2>Your Booking Information</h2>    
     
-    {% comment %} <p>Name: {{ booking.name }}</p>
+    <p>Id: {{ booking.id }}</p>
+    <p>Name: {{ booking.name }}</p>
     <p>Email: {{ booking.email }}</p>
-    <p>Phone: {{ booking.phone }}</p> {% endcomment %}
-
-    <p>Name: {{ name }}</p>
-    <p>Email: {{ email }}</p>
-    <p>Phone: {{ phone }}</p>
-    <p>Date: {{ booking_date }}</p>
-    <p>Time: {{ booking_time }}</p>
-    <p>Table: {{ table }}</p>    
+    <p>Phone: {{ booking.phone }}</p>
+    <p>Date: {{ booking.date }}</p>
+    <p>Time: {{ booking.time }}</p>
+    <p>Table: {{ booking.table }}</p>    
 
     {% comment %} <a href="{% url 'generate_pdf' booking.id %}" class="btn btn-primary">Download PDF</a> {% endcomment %}
         
 {% endblock %}
+
+
+
+
+{% comment %} 
+
+
+
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="table-responsive-sm">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                
+                <th scope="col">Booking id</th>
+                <th scope="col">Customer name</th>
+                <th scope="col">Booking date</th>
+                <th scope="col">Booking time</th>
+                <th scope="col">Phone number</th>
+                
+                <th scope="col">Edit booking</th>
+                <th scope="col">Delete booking</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+
+            <tr>
+                <th scope="row"></th>
+                
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.name }}</td>
+                <td>{{ booking.date }}</td>
+                <td>{{ booking.time }}</td>
+                <td>{{ booking.phone }}</td>
+                
+                <td>
+                    <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl"
+                            href="/edit/{{ booking.id }}">Edit
+                            Booking</a></div>
+                </td>
+                <td>
+                    <div class="intro-button mx-auto"><a class="btn btn-primary btn-danger btn-xl"
+                            href="/delete/{{ booking.id }}">Delete Booking</a></div>
+                </td>
+            </tr>
+
+        </tbody>
+        
+        {% csrf_token %}
+    </table>
+</div>
+{% endblock content %} {% endcomment %}

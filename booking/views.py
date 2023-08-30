@@ -74,7 +74,8 @@ def add_booking(request, table_id, booking_date, booking_time):
                
                 print("Redirecting to confirm_booking...")
                 
-                return redirect('confirm_booking', table_id=table.id, booking_date=booking_date, booking_time=booking_time)
+                # return redirect('confirm_booking', table_id=table.id, booking_date=booking_date, booking_time=booking_time)
+                return redirect('confirm_booking', booking_id=booking.id)
 
             else:
                 print("Form is NOT valid:", form.errors.as_data())   
@@ -96,32 +97,39 @@ def view_booking(request):
     return render(request, 'booking/view_booking.html', context)
 
 
-def confirm_booking(request, table_id, booking_date, booking_time):
-    if request.method == 'POST':
-        table = Table.objects.get(id=table_id)
-        name = request.POST.get('name')  # Retrieve name from the form
-        email = request.POST.get('email')  # Retrieve email from the form
-        phone = request.POST.get('phone')  # Retrieve phone from the form
-
-        # booking = {
-        #     'table': table,
-        #     'date': booking_date,
-        #     'time': booking_time,
-        #     'name': name,
-        #     'email': email,
-        #     'phone': phone,        
-        # }
-        return render(request, 'booking/confirm_booking.html', {'table': table, 'booking_date': booking_date, 'booking_time': booking_time, 'name': name, 'email':email })
-    else:
-        table = Table.objects.get(id=table_id)
-        return render(request, 'booking/confirm_booking.html', {'table': table, 'booking_date': booking_date, 'booking_time': booking_time})
+def confirm_booking(request, booking_id=None):
+    """
+    Function enables unlogged guests to view a booking confirmation using the booking ID.
+    """
+    if booking_id:
+        booking = get_object_or_404(Booking, id=booking_id)
+        print("Retrieved booking:", booking)
+        context = {'booking': booking}
+        return render(request, 'booking/confirm_booking.html', context)
     
+    return render(request, 'booking/confirm_booking.html')  # Render a template without booking details
 
 
+# def confirm_booking(request, table_id, booking_date, booking_time):
+#     if request.method == 'POST':
+#         table = Table.objects.get(id=table_id)
+#         name = request.POST.get('name')  # Retrieve name from the form
+#         email = request.POST.get('email')  # Retrieve email from the form
+#         phone = request.POST.get('phone')  # Retrieve phone from the form
 
-
-
-
+#         booking = {
+#             'table': table,
+#             'date': booking_date,
+#             'time': booking_time,
+#             'name': name,
+#             'email': email,
+#             'phone': phone,        
+#         }
+#         return render(request, 'booking/confirm_booking.html', {'table': table, 'booking_date': booking_date, 'booking_time': booking_time, 'name': name, 'email':email })
+#     else:
+#         table = Table.objects.get(id=table_id)
+#         return render(request, 'booking/confirm_booking.html', {'table': table, 'booking_date': booking_date, 'booking_time': booking_time})
+    
 
 
 # def booking_confirmation(request, table_id, booking_date, booking_time):
