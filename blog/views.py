@@ -29,3 +29,14 @@ class PostDetail(View):
                 "liked": liked
             },
         )
+
+
+def home(request):
+    # Retrieve the most recent blog post
+    recent_blog = Post.objects.order_by('-publish_date').first()
+
+    context = {
+        'recent_blog': recent_blog,
+    }
+
+    return render(request, 'home.html', context)

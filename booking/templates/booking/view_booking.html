@@ -12,7 +12,7 @@
                 <th scope="col"></th>
                 <th scope="col">Logged in User</th>
                 <th scope="col">Booking id</th>
-                <th scope="col">Customer name</th>
+                
                 <th scope="col">Booking date</th>
                 <th scope="col">Booking time</th>
                 <th scope="col">Table</th>
@@ -28,19 +28,19 @@
                 <th scope="row"></th>
                 <td>{{ user.username }}</td>
                 <td>{{ booking.id }}</td>
-                <td>{{ booking.name }}</td>
+                
                 <td>{{ booking.date }}</td>
                 <td>{{ booking.time }}</td>
                 <td>{{ booking.table }}</td>
                 
                 <td>
                     <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl"
-                            href="/edit/{{ booking.id }}">Edit
+                            href={% url 'edit_booking' booking.id %}>Edit
                             Booking</a></div>
                 </td>
                 <td>
                     <div class="intro-button mx-auto"><a class="btn btn-primary btn-danger btn-xl"
-                            href="/delete/{{ booking.id }}">Delete Booking</a></div>
+                            href={% url 'delete_booking' booking.id %}>Delete Booking</a></div>
                 </td>
             </tr>
 

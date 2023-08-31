@@ -110,45 +110,56 @@ def confirm_booking(request, booking_id=None):
     return render(request, 'booking/confirm_booking.html')  # Render a template without booking details
 
 
-# def confirm_booking(request, table_id, booking_date, booking_time):
-#     if request.method == 'POST':
-#         table = Table.objects.get(id=table_id)
-#         name = request.POST.get('name')  # Retrieve name from the form
-#         email = request.POST.get('email')  # Retrieve email from the form
-#         phone = request.POST.get('phone')  # Retrieve phone from the form
+def edit_booking(request, booking_id):
+    """
+    Function enables user to edit a booking after
+    it has been made and added to the database.
+    """
+    book = get_object_or_404(Booking, id=booking_id)
+    if request.method == "POST":
+        form = BookingForm(request.POST, instance=book)
+        if form.is_valid():
+            booking = form.save()
+            booking.user = request.user
+            booking.save()
+            messages.success(request, 'Your booking has been updated.')
+        return redirect('view_booking')
+    form = BookingForm(instance=book)
+    context = {
+        'form': form
+    }
+    return render(request, 'booking/edit_booking.html', context)
 
-#         booking = {
-#             'table': table,
-#             'date': booking_date,
-#             'time': booking_time,
-#             'name': name,
-#             'email': email,
-#             'phone': phone,        
-#         }
-#         return render(request, 'booking/confirm_booking.html', {'table': table, 'booking_date': booking_date, 'booking_time': booking_time, 'name': name, 'email':email })
-#     else:
-#         table = Table.objects.get(id=table_id)
-#         return render(request, 'booking/confirm_booking.html', {'table': table, 'booking_date': booking_date, 'booking_time': booking_time})
-    
+
+def delete_booking(request, booking_id):
+    """
+    Function enables user to delete a booking after
+    it has been made and added to the database.
+    """
+    booking = get_object_or_404(Booking, id=booking_id)
+    if request.method == "POST":
+        form = BookingForm(request.POST, instance=booking)
+        if booking.delete():
+            messages.success(request, 'Your booking has been deleted.')
+            return redirect('view_booking')
+
+    form = BookingForm(instance=booking)
+    context = {
+        'form': form
+    }
+    return render(request, 'booking/delete_booking.html', context)
 
 
-# def booking_confirmation(request, table_id, booking_date, booking_time):
-#     if request.method == 'POST':
-#         table = Table.objects.get(id=table_id)
-#         name = request.POST.get('name')  
-#         email = request.POST.get('email')  
-#         phone = request.POST.get('phone')  
+def handler404(request, *args, **argv):
+    """
+    Function to enable customizing 404 error
+    page in production environment if booking is not found.
+    """
+    form = BookingForm()
+    context = {
+        'form': form
+        }
+    response = render(request, 'booking/not_found.html', context)
+    response.status_code = 404
+    return response
 
-#         booking = {
-#             'table': table,
-#             'date': booking_date,
-#             'time': booking_time,
-#             'name': name,
-#             'email': email,
-#             'phone': phone,        
-#         }
-#         return render(request, 'booking/booking_confirmation.html', {'booking': booking})
-#     else:
-#         # url = reverse('booking_form', args=[table_id, booking_date, booking_time])
-#         # return redirect(url)
-#         return redirect('booking_form', table_id=table.id, booking_date=booking_date, booking_time=booking_time)
