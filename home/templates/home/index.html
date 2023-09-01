@@ -72,17 +72,24 @@
             <a href="" class='item-link'>Book a Table</a>
             
         </div>
-        <div class="Weather">login
+        <div class="login">login
 
         </div>
         <div class="event">event
 
         </div>
-        <div class="Blog">
-            <a href="" class='title-link'>Blog</a>
-            
-            
+        
+        <div class="blog">
+            <a class='title-link' href="{% url 'PostList' %}" >Blog</a>
+            {% if recent_post %}
+                <a class='' href="{% url 'post_detail' slug=recent_post.slug %}" >                    
+                    <p>{{ recent_post.excerpt }}</p>
+                </a>                
+            {% else %}                
+                <p>No recent blog post available.</p>
+            {% endif %}                             
         </div>
+
         <div class="benefit">benefit
             
         </div>
