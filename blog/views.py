@@ -62,12 +62,3 @@ class PostDetail(View):
         )
         
 
-def recent_post(request, slug):
-    
-    recent_post = Post.objects.order_by('-created_on').first()   
-
-    if recent_post:
-       
-        return redirect('post_detail', slug=recent_post.slug)
-    # else:        
-    #     return redirect('PostList')

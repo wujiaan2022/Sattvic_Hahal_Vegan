@@ -81,13 +81,12 @@
         
         <div class="blog">
             <a class='title-link' href="{% url 'PostList' %}" >Blog</a>
-            {% if recent_post %}
-                <a class='' href="{% url 'post_detail' slug=recent_post.slug %}" >                    
-                    <p>{{ recent_post.excerpt }}</p>
-                </a>                
-            {% else %}                
-                <p>No recent blog post available.</p>
-            {% endif %}                             
+            
+            <a class='' href="{% url 'post_detail' slug='reducing-cancer-risk-with-a-plant-based-diet' %}" >                    
+                <p>Reducing Cancer Risk With a Plant-Based Diet</p>
+                <p>The more naturally colorful your diet is, the more likely it is to have an abundance of cancer-fighting compounds. The pigments that give fruits and vegetables their bright colors—like beta-carotene in sweet potatoes or lycopene in tomatoes—help you fight cancer.</p>
+            </a>               
+                                        
         </div>
 
         <div class="benefit">benefit
