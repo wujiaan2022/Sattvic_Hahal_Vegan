@@ -27,7 +27,9 @@ class PostDetail(View):
             {
                 "post": post,
                 "comments": comments,
-                "liked": liked
+                "commented": False,
+                "liked": liked,
+                "comment_form": CommentForm()
             },
         )
         
@@ -54,7 +56,7 @@ class PostDetail(View):
             request,
             "blog/post_detail.html",
             {
-                "post": post,
+                 "post": post,
                 "comments": comments,
                 "commented": True,
                 "comment_form": comment_form,
