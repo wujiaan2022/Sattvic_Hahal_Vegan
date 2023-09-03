@@ -1,17 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-
-
 {% block page_header %}
-    {% comment %} <div class="container-fluid index-text-header">
-        <div class="row">
-            <div class="col">
-                
-            </div>
-        </div>
-    </div>    {% endcomment %}
-
 {% endblock %}
 
 {% block content %}
@@ -53,45 +43,40 @@
             </a>            
         </div>
 
-        <div class="about">
-            <a href="" class='title-link btn-block'>About Us</a>
-            <a href="" class='item-link btn-block'>Location & Map</a>
-            <a href="" class='item-link btn-block'>Cuisine Type</a>
-            <a href="" class='item-link btn-block'>Contact & Media</a>  
-                                                                     
+        <div class="about grid-content">
+            <a href="" class='title-link'>
+                <h5>
+                    <span>About</span><br>
+                    <span>Location</span><br>                    
+                    <span>Contact</span>
+                </h5>                
+            </a>                                                                                
         </div>
-        <div class="menu">
-            <a href="" class='title-link btn-block  display-4'>Menu & Price</a>
-            <a href="" class='item-link'>Lunch</a>            
-            <a href="" class='item-link'>Dinner</a>
-            
-        </div>
-        <div class="booking">
-            <a href="" class='title-link'>See Available</a>
-            <p>Only 1 Window Tables for 2 People with Garden View Left</p>
-            <a href="" class='item-link'>Book a Table</a>
-            
-        </div>
-        <div class="login">login
-
-        </div>
-        <div class="event">event
-
+        <div class="menu grid-content responsive-title">
+            <a href="" class='title-link btn-block  display-5'>Menu & Price</a>                       
         </div>
         
-        <div class="blog">
-            <a class='title-link' href="{% url 'PostList' %}" >Blog</a>
-            
-            <a class='' href="{% url 'post_detail' slug='reducing-cancer-risk-with-a-plant-based-diet' %}" >                    
-                <p>Reducing Cancer Risk With a Plant-Based Diet</p>
-                <p>The more naturally colorful your diet is, the more likely it is to have an abundance of cancer-fighting compounds. The pigments that give fruits and vegetables their bright colors—like beta-carotene in sweet potatoes or lycopene in tomatoes—help you fight cancer.</p>
-            </a>               
-                                        
+        <div class="benefit grid-content">            
+            <a class='content-link' href="https://www.theyoganomads.com/sattvic-diet/" >                    
+                <h6>Bring Out The Best Of Physical, Mental, Emotional, And Spiritual Health!</h6>                
+            </a>
+            <a class='content-link' href="https://www.thinkrightme.com/what-is-sattvic-food-and-the-science-behind-it/" >                    
+                <h6>What Is The Science Behind The Sattvic Diet?</h6>                
+            </a>
+            <a class='content-link' href="https://www.vantagefit.io/blog/sattvic-diet/" >                    
+                <h6>The Perfect Way To Boost Well-Being And Productivity!</h6>                
+            </a>
         </div>
 
-        <div class="benefit">benefit
-            
+        <div class="blog grid-content">
+            <a class='title-link responsive-title' href="{% url 'PostList' %}" >Latest Blog</a>            
+            <a class='content-link' href="{% url 'post_detail' slug='reducing-cancer-risk-with-a-plant-based-diet' %}" >                    
+                <h5>Reducing Cancer Risk With a Plant-Based Diet</h5>
+                <p>The more naturally colorful your diet is, the more likely it is to have an abundance of cancer-fighting compounds. The pigments that give fruits and vegetables their bright colors—like beta-carotene in sweet potatoes or lycopene in tomatoes—help you fight cancer.</p>
+            </a>                                                    
         </div>
+
+        
     </div>
 {% endblock %}
 
