@@ -59,7 +59,7 @@
         <div class="row">
             
             <div class="col-lg-1 my-auto py-1 py-lg-0 text-center text-lg-right">          
-                <a href="{% url 'home' %}" class="nav-link main-logo-link icon-text">
+                <a href="{% url 'home' %}" class="link-text">
                     <div class="text-center">
                         <div><i class="fa-solid fa-house fa-lg"></i></div>
                         <p class="my-0">Home</p>
@@ -68,7 +68,7 @@
             </div>
 
             <div class="col-lg-3 my-auto py-1 py-lg-0 text-darkgreen">
-                <h6 classe="icon-text" id="dateDisplay"></h6>
+                <h6 classe="" id="dateDisplay"></h6>
             </div>      
                             
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -85,11 +85,23 @@
                     </div>
                 </form>
             </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                    <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center icon-text">
+
+            <div class="col-lg-2 my-auto py-1 py-lg-0 text-center text-lg-right">          
+                <a href="{% url 'check_available' %}" class="link-text">
+                    <div class="text-center">
+                        <div><i class="fa-solid fa-champagne-glasses fa-lg"></i></div>
+                        <p class="my-0">
+                            Book a Table
+                        </p>
+                    </div>
+                </a>          
+            </div>
+
+            <div class="col-lg-2 my-auto py-1 py-lg-0 text-center text-lg-right">          
+                <ul class="list-unstyled text-center text-lg-right my-0">
+                    <li class="dropdown">
+                        <a class="link-text" href="#" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
                                 <p class="my-0">My Account</p>
                             </div>
@@ -106,43 +118,31 @@
                                 <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                             {% endif %}
                         </div>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="{% if booking  %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
-                            <div class="text-center icon-text">
-                                <div><i class="fa-solid fa-champagne-glasses fa-lg"></i></div>
-                                <p class="my-0">
-                                    {% if booking %}
-                                    You have booked {table_number} table.
-                                    {% else %}
-                                        You haven't booked any table.
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                    </li>                    
+                </ul>          
+            </div>            
+            
         </div>
     </header>
-
-
-    {% if messages %}
-        <div class="messages">
-            {% for message in messages %}
-                <div class="message {{ message.tags }}">
-                    <span>{{ message }}</span>
-                    <button class="close" onclick="this.parentElement.style.display='none';">&times;</button>
-                </div>
-            {% endfor %}
-        </div>
-    {% endif %}  
-
+    
     {% block page_header %}
     {% endblock %}
 
     {% block content %}
-        {% load crispy_forms_tags %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
     {% endblock %}
 
     {% block postloadjs %}
@@ -159,7 +159,15 @@
         // Display the date on the webpage
         var dateDisplay = document.getElementById("dateDisplay");
         dateDisplay.textContent = "Today's date is: " + formattedDate;
-    </script>   
+    </script>
+    
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 2500);
+    </script>
 
   </body>
 </html>

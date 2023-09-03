@@ -5,9 +5,11 @@ from .models import Booking
 from .forms import BookingAdmin
 
 
-# class BookingAdmin(admin.ModelAdmin):
-#     form = BookingAdminForm
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ('name', 'table', 'date', 'time')
+    list_filter = ('name', 'table', 'date', 'time')
+    search_fields = ('name', 'table', 'date', 'time', 'email')   
 
 
 admin.site.register(Table)
-admin.site.register(Booking, BookingAdmin)

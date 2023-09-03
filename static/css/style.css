@@ -1,12 +1,17 @@
+/* basic setting */
+
 html {
 
 }
 
-body {
-  
+body {  
   font-family: 'Lato';
-
 }
+
+.text-darkgreen {
+  color: rgb(1, 83, 96);
+}
+
 
 /* from Bulma */
 .icon {
@@ -17,30 +22,28 @@ body {
   width: 1.5rem;
 }
 
-
  
-/* page header */
+/* homepage header_ base template */
 
-
-.text-darkgreen {
+.link-text {
   color: rgb(1, 83, 96);
 }
 
-.icon-text {
-  color: rgb(1, 83, 96);
-}
-
-.icon-text:hover {
-  color: rgb(173, 0, 138);
+.link-text:hover { 
+  color: rgb(173, 0, 138);  
+  text-decoration: none;
 }
 
 .base-nav-header {
-  width: 100%; /* Set the width of the container */
+  width: 100%; 
   padding-top: 10px;
-  background-image: url('/static/images/pageHeaderRainbow.jpg'); /* Path to your image */
-  background-size: cover; /* Scale the image to cover the entire container */
-  background-position: center; /* Center the image within the container */
+  padding-bottom: 8px;
+  background-image: url('/static/images/pageHeaderRainbow.jpg'); 
+  background-size: cover; 
+  background-position: center; 
 }
+
+/* homepage content_index template*/
   
 .title-link {
   display: block;
@@ -233,7 +236,7 @@ body {
 
 
 
-  /* CSS to style the messages and close button */
+  /* CSS to style the messages and close button
 .messages {
   position: fixed;
   top: 10px;
@@ -268,7 +271,7 @@ body {
   border: none;
   cursor: pointer;
 }
-  
+   */
 
   
 @media only screen and (max-width: 900px)   {
