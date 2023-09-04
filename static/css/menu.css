@@ -1,0 +1,22 @@
+/* .custom-gap {
+    margin-right: 20px; 
+    margin-left: 20px; 
+} */
+
+.card-img-top-container-main {
+    height: 300px; /* or whatever height you want */
+    overflow: hidden;    
+}
+
+.card-img-top-container {
+    height: 200px; /* or whatever height you want */
+    overflow: hidden;
+}
+
+/* Styling for the image */
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This will cover the entire container without distorting the image */
+}
+
