@@ -1,0 +1,56 @@
+.card-body {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+.card-img-top-container-main {
+    height: 300px; 
+    overflow: hidden;    
+}
+
+.card-img-top-container {
+    height: 200px; 
+    overflow: hidden;
+}
+
+/* Styling for the image */
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* cover the entire container without distorting the image */
+}
+
+.card-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.list-hours li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e2e2;  /* add a subtle line beneath each weekday' */
+    transition: background-color 0.3s;
+}
+
+.list-hours li:last-child {
+    border-bottom: none;
+}
+
+.list-hours li:hover {
+    background-color: #f1f1f1;
+}
+
+.list-hours span {
+    font-weight: bold;
+}
+
+.open {
+    color: green;
+}
+
+.closed {
+    color: red;
+}
