@@ -58,7 +58,7 @@
         
         <div class="row">
             
-            <div class="col-lg-1 my-auto py-1 py-lg-0 text-center text-lg-right">          
+            <div class="col-lg-3 my-auto py-1 py-lg-0 text-center">          
                 <a href="{% url 'home' %}" class="link-text">
                     <div class="text-center">
                         <div><i class="fa-solid fa-house fa-lg"></i></div>
@@ -67,26 +67,9 @@
                 </a>            
             </div>
 
-            <div class="col-lg-3 my-auto py-1 py-lg-0">
-                <h6 classe="text-darkgreen" id="dateDisplay"></h6>
-            </div>      
+                
                             
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="">
-                    <div class="input-group w-100">
-                        <input class="form-control border border-success rounded-0" type="text" name="q" placeholder="Search our site">
-                        <div class="input-group-append">
-                            <button class="form-control btn btn-black border border-success rounded-0" type="submit">
-                                <span class="icon">
-                                    <i class="fas fa-search"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div class="col-lg-2 my-auto py-1 py-lg-0 text-center text-lg-right">          
+            <div class="col-lg-3 my-auto py-1 py-lg-0 text-center">          
                 <a href="{% url 'check_available' %}" class="link-text">
                     <div class="text-center">
                         <div><i class="fa-solid fa-champagne-glasses fa-lg"></i></div>
@@ -97,7 +80,7 @@
                 </a>          
             </div>
 
-            <div class="col-lg-2 my-auto py-1 py-lg-0 text-center text-lg-right">          
+            <div class="col-lg-3 my-auto py-1 py-lg-0 text-center">          
                 <ul class="list-unstyled text-center text-lg-right my-0">
                     <li class="dropdown">
                         <a class="link-text" href="#" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -120,7 +103,11 @@
                         </div>
                     </li>                    
                 </ul>          
-            </div>            
+            </div>
+            
+            <div class="col-lg-3 my-auto py-1 py-lg-0 text-lg-right">
+                <h6 classe="text-darkgreen" id="dateDisplay"></h6>
+            </div>  
             
         </div>
     </header>

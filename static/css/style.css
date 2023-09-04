@@ -1,12 +1,21 @@
 /* basic setting */
 
-body, html {
-  height: 100%;
-  margin: 0;  
+/* html {
+  border: 1px solid black;
 }
+body {
+  border: 1px solid red;
+} */
+/* .stacked {
+  border: 1px solid blue;
+}
+footer {
+  border: 1px solid green;
+} */
 
 body {  
   font-family: 'Lato';
+  margin-bottom: 60px;
 }
 
 .text-darkgreen {
@@ -39,7 +48,7 @@ body {
   width: 100%; 
   padding-top: 10px;
   padding-bottom: 8px;
-  background-image: url('/static/images/pageHeaderRainbow.jpg'); 
+  background-image: url('/static/images/pageHeaderRainbow2.jpg'); 
   background-size: cover; 
   background-position: center; 
 }
@@ -49,22 +58,22 @@ body {
 
 .sticky-footer {
   width: 100%;
-  position: absolute;
+  height: 40px;
+  position: fixed;
   bottom: 0;
-  background-image: url('/static/images/pageHeaderRainbow2.jpg');
-  /* opacity: 0.5; */
+  background-image: url('/static/images/pageHeaderRainbow2.jpg'); 
   background-size: cover; 
   background-position: center; 
-  padding: 5px 0;
 }
 
 .footer-container {
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%; 
+  height: 100%;
+  /* margin: 0 auto; */
   display: flex;
   justify-content: center;
-  gap: 50px;
+  align-items: center;
+  gap: 100px;
 }
 
 .sticky-footer a {
@@ -189,7 +198,7 @@ body {
       "about menu menu blog blog blog"      
       "about benefit benefit blog blog blog";
       
-    margin: 1.5em;    
+    margin: 20px;     
   }
 
 
@@ -217,42 +226,6 @@ body {
 
 
 
-  /* CSS to style the messages and close button
-.messages {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 1000;
-}
-
-.message {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f0f0f0;
-}
-
-.message.success {
-  border-color: #2ecc71;
-  background-color: #c1f7d8;
-  color: rgb(1, 83, 96);
-}
-
-.message.error {
-  border-color: #e74c3c;
-  background-color: #f2dede;
-}
-
-.close {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-   */
 
   
 /* @media only screen and (max-width: 900px)   {
