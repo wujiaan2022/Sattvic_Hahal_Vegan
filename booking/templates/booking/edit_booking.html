@@ -3,27 +3,21 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<div>
+
+<div class="container form-section">
 
     <h2>Edit your booking</h2>
     
     <p><a href="{% url 'view_booking' %}">Changed my mind, back to my booking</a></p>
-                <div class="row">
-                    <div class="col-md-8 mt-3 offset-md-2">
-                        <form method="POST" action="" name="form"> 
-                            
-                            {{form|crispy}}
-                            {% csrf_token %}
+        
+    <form method="POST" action="" name="form"> 
+        
+        {{form|crispy}}
+        {% csrf_token %}
 
-
-                            <div class="intro-button mx-auto"><button class="btn btn-primary btn-xl"
-                                    type="submit">Submit edited booking</button>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-
+        <button class="btn btn-primary" type="submit">Submit edited booking</button>
+       
+    </form>
 
 </div>
 

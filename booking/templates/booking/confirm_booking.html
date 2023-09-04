@@ -3,6 +3,8 @@
 
 {% block content %}
 
+<div class="container form-section">
+
     <h2>Your Booking Information</h2>    
     
     <p>Id: {{ booking.id }}</p>
@@ -15,6 +17,10 @@
 
     {% comment %} <a href="{% url 'generate_pdf' booking.id %}" class="btn btn-primary">Download PDF</a> {% endcomment %}
         
+
+</div>
+
+    
 {% endblock %}
 
 

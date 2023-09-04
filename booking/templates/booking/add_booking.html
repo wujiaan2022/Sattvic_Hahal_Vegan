@@ -1,63 +1,61 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% load static %}
 
 {% block content %}
 
 
-<div id="user-auth-section">
-  {% if user.is_authenticated %}
-      <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
-  {% else %}
-      <p>Not logged in. <a href="{% url 'login' %}">Login</a> or continue as guest.</p>
-  {% endif %}
-</div>
+<div class="container form-section">
+  <div id="user-auth-section">
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+    {% else %}
+        <p>Not logged in. <a href="{% url 'login' %}">Login</a> or continue as guest.</p>
+    {% endif %}
+  </div>
 
-<div id="crate-booking-section">
-  <form method="post" action="" >
-    {% comment %} {{ form|crispy }}  {% endcomment %}
+  <form method="post" action="" >    
     {% csrf_token %}
 
-      <h5>To book a Table Please fill in the Form</h5>
+      <h5>To book a Table Please fill in the Form</h5> 
+      
+      {{ form|crispy }}
 
-      <p>Selected Table: {{ table.table_name }} (ID: {{ table.id }}), Capacity: {{ table.capacity }}</p>
-      <p>Selected Date: {{ booking_date }}</p>
-      <p>Selected Time: {{ booking_time }}</p>
-      
-      <p>Table ID: {{ table.id }}, booking_date: {{ booking_date }}, booking_time: {{ booking_time }}</p>
-      
-      {{ form.name.label_tag }}
-      {{ form.name }}
-      {{ form.email.label_tag }}
-      {{ form.email }}
-      {{ form.phone.label_tag }}
-      {{ form.phone }}
-      {{ form.party_size.label_tag }}
-      {{ form.party_size }}
-      {{ form.time.label_tag }}
-      {{ form.time }}
-      {{ form.table.label_tag }}
-      {{ form.table }}
-      {{ form.date.label_tag }}
-      {{ form.date }}      
-      
-      <button type="submit">Book Now</button>
+      {% comment %} <div class="form-group">
+        {{ form.name.label_tag }}
+        {{ form.name }}
+      </div>
+      <div class="form-group">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+      </div>
+      <div class="form-group">
+        {{ form.phone.label_tag }}
+        {{ form.phone }}
+      </div>
+      <div class="form-group">
+        {{ form.party_size.label_tag }}
+        {{ form.party_size }}
+      </div>
+      <div class="form-group">
+        {{ form.time.label_tag }}
+        {{ form.time }}
+      </div>
+      <div class="form-group">
+        {{ form.date.label_tag }}
+        {{ form.date }} 
+      </div>
+      <div class="form-group">
+        {{ form.table.label_tag }}
+        {{ form.table }} 
+      </div>    {% endcomment %}
+
+      <button type="submit" class="btn btn-primary">Book Now</button>
   </form>
-</div> 
+
+</div>
 
 {% endblock %}
 
 
 
-{% comment %} <input type="hidden" name="table" id="selected-table">
-      <input type="hidden" name="date" id="selected-date">
-      <input type="hidden" name="time" id="selected-time"> {% endcomment %}
-
-      {% comment %} <label for="selected-table">You have chosen this Table:</label>
-      <input  name="table" id="selected-table" value="{{ table.table_name }}" disabled>
-
-      <label for="selected-date">You have chosen this Date:</label>
-      <input name="date" id="selected-date" value="{{ booking_date }}" disabled>
-
-      <label for="selected-time">You have chosen this Time:</label>
-      <input name="time" id="selected-time" value="{{ booking_time }}" disabled> {% endcomment %}

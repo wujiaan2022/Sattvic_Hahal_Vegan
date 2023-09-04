@@ -3,29 +3,23 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
+<div class="container form-section">
 
+    <h2 class="">
+        Are you sure you want to delete this booking?
+    </h2>
+    <p><a href="{% url 'view_booking' %}">No, back to my booking</a></p>
+   
+    <form method="POST" action="" name="form">
 
-            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                <h2 class="section-heading mb-4">
-                    <span class="section-heading-upper">Are you sure you want to delete this booking?</span>
-                </h2>
-                <p><a href="{% url 'view_booking' %}">No, back to my booking</a></p>
-                <div class="row">
-                    <div class="col-md-8 mt-3 offset-md-2">
-                        <form method="POST" action="" name="form">
+        {{form|crispy}}
+        {% csrf_token %}
 
-                            {{form|crispy}}
-                            {% csrf_token %}
-                            <div class="intro-button mx-auto">                                
-                                <button class="btn btn-danger btn-primary btn-xl">Delete Booking</button></a>
-                            </div>
-                        </form>
-                    </div>                         
-                </div>
-            </div>
+        <button class="btn btn-primary">Delete Booking</button></a>
         
-
-
+    </form>
+   
+</div>
 
 
 {% endblock content %}

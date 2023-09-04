@@ -1,43 +1,47 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% load static %}
 
 {% block content %}
 
+<div class="container form-section">
 
-<div id="user-auth-section">
+  <div id="user-auth-section">
   {% if user.is_authenticated %}
       <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
   {% else %}
       <p>Not logged in. <a href="{% url 'login' %}">Login</a> or continue as guest.</p>
   {% endif %}
-</div>
+  </div>
 
-<div id="initial-form-section">
-  <form method="get" action="{% url 'show_available' %}">
-    {% comment %} {{ form|crispy }}   {% endcomment %}
+  <form method="get" action="{% url 'show_available' %}">    
     {% csrf_token %}
-            
-      <label for="from-datepicker">Please choose a date:</label>
-      <input type="text" id="from-datepicker" name="date"/>
-        
-      <label for="{{ form.time.id_for_label }}">Please choose a time:</label>
-      {{ form.time }}
-        
-      <button type="submit">Check Availability</button>
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
-      <script> 
-        $(document).ready(function() {     
-          $("#from-datepicker").datepicker({          
-            format: 'yyyy-mm-dd'
-          });      
-        });  
-      </script>
+    <div class="form-group">
+      <label for="from-datepicker">Please choose a date:</label>
+      <input type="text" class="form-control" id="from-datepicker" name="date"/>    
+    </div>
+
+    <div class="form-group">
+      <label for="{{ form.time.id_for_label }}">Please choose a time:</label>    
+      {{ form.time|as_crispy_field }}         
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Check Availability</button>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+    <script> 
+      $(document).ready(function() {     
+        $("#from-datepicker").datepicker({          
+          format: 'yyyy-mm-dd'
+        });      
+      });  
+    </script>
+    
   </form>
 </div>
-
-
 
 {% endblock %}

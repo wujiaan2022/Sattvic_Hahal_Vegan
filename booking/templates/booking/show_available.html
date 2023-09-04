@@ -4,29 +4,32 @@
 
 {% block content %}
 
+<div class="container form-section">
+  <div id="user-auth-section">
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+    {% else %}
+        <p>Not logged in. <a href="{% url 'login' %}">Login</a> or continue as guest.</p>
+    {% endif %}
+  </div>
 
-<div id="user-auth-section">
-  {% if user.is_authenticated %}
-      <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
-  {% else %}
-      <p>Not logged in. <a href="{% url 'login' %}">Login</a> or continue as guest.</p>
-  {% endif %}
+  <div id="table-availability-section">
+    <h2>Available Tables</h2>
+    <ul>
+      {% for table in available_tables %}
+        <li>
+            Table: {{ table.table_name }} (Capacity: {{ table.capacity|capfirst }})
+            <!-- Display the variables to check their values -->
+            <p>Table ID: {{ table.id }}, Booking Date: {{ booking_date }}, Booking Time: {{ booking_time }}</p>
+            <a href="{% url 'add_booking' table.id booking_date booking_time %}" class="btn btn-primary">
+                Book this Table
+            </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
 </div>
 
-<div id="table-availability-section">
-  <h2>Available Tables</h2>
-  <ul>
-    {% for table in available_tables %}
-      <li>
-          Table: {{ table.table_name }} (Capacity: {{ table.capacity|capfirst }})
-          <!-- Display the variables to check their values -->
-          <p>Table ID: {{ table.id }}, Booking Date: {{ booking_date }}, Booking Time: {{ booking_time }}</p>
-          <a href="{% url 'add_booking' table.id booking_date booking_time %}" class="btn btn-primary">
-              Book this Table
-          </a>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
 
 {% endblock %}
