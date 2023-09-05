@@ -54,3 +54,12 @@
 .closed {
     color: red;
 }
+
+
+/* For screens smaller than 900px */
+@media only screen and (max-width: 900px) {
+    .card-img-top-container-main {
+        height: 200px; 
+        overflow: hidden;   
+          }
+        }  

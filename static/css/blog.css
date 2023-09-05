@@ -94,6 +94,7 @@ body {
 .post-link:hover,
 .page-link {
     color: #E84610;
+    text-decoration: none;
 }
 
 .post-title {

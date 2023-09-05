@@ -232,7 +232,7 @@ body {
       
     margin: 20px;     
   }
-
+  
   
 @media only screen and (max-width: 900px)   {
   .about-sm {
@@ -252,7 +252,7 @@ body {
   }
 
 
-@media only screen and (max-width: 500px)  {  
+@media only screen and (max-width: 600px)  {  
   .gallery2 {
     display: none;
   }
@@ -281,25 +281,24 @@ body {
   }
   }
 
-
-  .responsive-title {
+  .responsive-heading, .responsive-title {
     font-size: 40px;  /* This is the default font size for larger screens */
   }
   /* For screens smaller than 1200px */
   @media only screen and (max-width: 1200px) {
-    .responsive-title {
+  .responsive-heading, .responsive-title {
         font-size: 36px;
     }
   }  
   /* For screens smaller than 900px */
   @media only screen and (max-width: 900px) {
-    .responsive-title {
+  .responsive-heading, .responsive-title {
         font-size: 28px;
     }
   }  
   /* For screens smaller than 600px */
-  @media only screen and (max-width: 600px) {
-    .responsive-title, .responsive-subtitle {
+  @media only screen and (max-width: 425px) {
+  .responsive-heading, .responsive-subtitle {
         font-size: 16px;
     }
   }
