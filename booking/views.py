@@ -4,6 +4,7 @@ from .models import Booking, Table
 from .forms import check_availability_form, BookingForm
 from datetime import datetime
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def check_available(request):
@@ -85,6 +86,7 @@ def add_booking(request, table_id, booking_date, booking_time):
     return render(request, 'booking/add_booking.html', {'form': form, 'table': table, 'booking_date': booking_date, 'booking_time': booking_time})
 
 
+@login_required
 def view_booking(request):
     """
     Function enables user to view a booking after
@@ -110,6 +112,7 @@ def confirm_booking(request, booking_id=None):
     return render(request, 'booking/confirm_booking.html')  # Render a template without booking details
 
 
+@login_required
 def edit_booking(request, booking_id):
     """
     Function enables user to edit a booking after
@@ -131,6 +134,7 @@ def edit_booking(request, booking_id):
     return render(request, 'booking/edit_booking.html', context)
 
 
+@login_required
 def delete_booking(request, booking_id):
     """
     Function enables user to delete a booking after
