@@ -52,25 +52,23 @@
 
         <div class="row">
             <div class="col text-darkgreen text-center">
-                <h1>Sattvic, Halal & Vegen</h1>
-                <h1>Full Color Diet = Full Happy Life</h1>
+                <h1 class="responsive-title">Sattvic, Halal & Vegen</h1>
+                <h1 class="responsive-title">Full Color Diet = Full Happy Life</h1>
             </div>
         </div>
         
         <div class="row">
             
-            <div class="col-lg-3 my-auto py-1 py-lg-0 text-center">          
-                <a href="{% url 'home' %}" class="link-text">
+            <div class="col-3 my-auto text-center">          
+                <a href="{% url 'home' %}" class="link-text d-inline">
                     <div class="text-center">
                         <div><i class="fa-solid fa-house fa-lg"></i></div>
-                        <p class="my-0">Home</p>
+                        <p class="my-0 d-none d-sm-inline">Home</p>
                     </div>              
                 </a>            
-            </div>
-
-                
+            </div>                
                             
-            <div class="col-lg-3 my-auto py-1 py-lg-0 text-center">          
+            <div class="col-6 col-md-3 my-auto text-center">          
                 <a href="{% url 'check_available' %}" class="link-text">
                     <div class="text-center">
                         <div><i class="fa-solid fa-champagne-glasses fa-lg"></i></div>
@@ -81,13 +79,18 @@
                 </a>          
             </div>
 
-            <div class="col-lg-3 my-auto py-1 py-lg-0 text-center">          
-                <ul class="list-unstyled text-center text-lg-right my-0">
+            <div class="col-3 my-auto text-center">          
+                <ul class="list-unstyled text-center my-0">
                     <li class="dropdown">
                         <a class="link-text" href="#" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">My Account</p>
+                                {% if user.is_authenticated %}
+                                    <p class="my-0 d-none d-sm-inline">Hello, {{ user.username }}</p>
+                                {% else %}
+                                    <p class="my-0 d-none d-sm-inline">My Account</p>
+                                {% endif %}
+
                             </div>
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -105,7 +108,7 @@
                 </ul>          
             </div>
             
-            <div class="col-lg-3 my-auto py-1 py-lg-0 text-lg-right">
+            <div class="col-12 col-md-3 my-auto text-center">
                 <h6 classe="text-darkgreen" id="dateDisplay"></h6>
             </div>  
             
@@ -159,7 +162,7 @@
     
         // Display the date on the webpage
         var dateDisplay = document.getElementById("dateDisplay");
-        dateDisplay.textContent = "Today's date is: " + formattedDate;
+        dateDisplay.textContent = "Today: " + formattedDate;
     </script>
     
     <script>

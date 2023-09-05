@@ -24,10 +24,10 @@ body {
 
 
 /* from Bulma */
-.icon {
-  align-items: center;
+.icon {  
   display: inline-flex;
   justify-content: center;
+  align-items: center;
   height: 1.5rem;
   width: 1.5rem;
 }
@@ -87,7 +87,7 @@ body {
   color: rgb(173, 0, 138); 
 }
 
-/* homepageContent_indexTemplate_gridGallery background image and text */
+/* homepageContent_indexTemplate_gridGallery_autoChangeImg*/
 
 .gallery-container {
   position: relative;
@@ -282,6 +282,6 @@ body {
   /* For screens smaller than 600px */
   @media only screen and (max-width: 600px) {
     .responsive-title {
-        font-size: 20px;
+        font-size: 16px;
     }
   }
