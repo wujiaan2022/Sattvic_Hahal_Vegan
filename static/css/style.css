@@ -120,8 +120,7 @@ body {
 .gallery-text {
   color: rgb(1, 83, 96);
   text-align: center;
-  line-height: 1.5; 
-  letter-spacing: 1.5px; 
+  line-height: 1.5;   
 }
 
 .gallery-text:hover {
@@ -184,23 +183,15 @@ body {
   line-height: 2;
 }
 
+.about-sm span {
+  border-bottom: 1px solid rgb(1, 83, 96); 
+  padding-bottom: 2px; /* This provides a little spacing between the text and the underline */
+  display: inline-block; /* This makes sure the underline only goes as far as the word and not the full width */
+  margin: 10px;
+}
+
 
 /* grid system definition */
-
-.stacked {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    gap: 1em;
-    grid-template-areas:
-      "pic1 pic1 pic2 pic2 pic3 pic3"
-      "pic1 pic1 pic2 pic2 pic3 pic3"
-      "about menu menu blog blog blog"      
-      "about benefit benefit blog blog blog";
-      
-    margin: 20px;     
-  }
-
 
 .gallery1 {
   grid-area: pic1;  
@@ -214,6 +205,10 @@ body {
 .about {
     grid-area: about;    
   }
+.about-sm {
+  grid-area: about-sm; 
+  display: none;   
+}
 .menu {
     grid-area: menu;    
   }
@@ -224,44 +219,67 @@ body {
     grid-area: benefit;    
   }
 
-
-
+.stacked {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 1em;
+    grid-template-areas:
+      "pic1 pic1 pic2 pic2 pic3 pic3"
+      "pic1 pic1 pic2 pic2 pic3 pic3"
+      "about menu menu menu blog blog"      
+      "about benefit benefit benefit blog blog";
+      
+    margin: 20px;     
+  }
 
   
-/* @media only screen and (max-width: 900px)   {
-  .wrapper {  
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    grid-template-areas:
-    "pic1 pic2 pic2 pic3"
-    "pic1 pic2 pic2 pic3"
-    "about menu menu login"
-    "about booking booking booking"
-    "event event blog blog"
-    "event event benefit benefit";
-  }
-  }
-
-
-@media only screen and (max-width: 700px)  {
-  .gallery1 {
+@media only screen and (max-width: 900px)   {
+  .about-sm {
     display: none;
   }
-  .wrapper {  
+  .stacked {
+    display: grid;  
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-areas:
+    "pic1 pic1 pic2 pic2 pic3 pic3"
+    "pic1 pic1 pic2 pic2 pic3 pic3"
+    "about about menu menu menu menu"      
+    "about about blog blog blog blog"
+    "benefit benefit benefit benefit benefit benefit";
+  }
+  }
+
+
+@media only screen and (max-width: 500px)  {  
+  .gallery2 {
+    display: none;
+  }
+  .about {
+    display: none;
+  }
+  .about-sm {
+    display: flex;
+  }
+  .stacked {  
+    display: grid;
     grid-template-columns: repeat(4, 1fr);    
     grid-template-areas:
-    "pic2 pic2 pic3 pic3"
-    "pic2 pic2 pic3 pic3"
-    "login menu menu menu"    
-    "about booking booking booking"
-    "about event event event"
-    "blog blog benefit benefit";
+    "pic1 pic1 pic1 pic1"
+    "pic1 pic1 pic1 pic1"
+    "pic3 pic3 pic3 pic3"
+    "pic3 pic3 pic3 pic3"
+    "menu menu menu menu" 
+    "about-sm about-sm about-sm about-sm"     
+    "benefit benefit benefit benefit"
+    "blog blog blog blog";
     padding-left: 0;
     padding-right: 0;
     gap: 5px;
     margin: 5px;
   }
-  } */
+  }
 
 
   .responsive-title {
@@ -281,7 +299,7 @@ body {
   }  
   /* For screens smaller than 600px */
   @media only screen and (max-width: 600px) {
-    .responsive-title {
+    .responsive-title, .responsive-subtitle {
         font-size: 16px;
     }
   }

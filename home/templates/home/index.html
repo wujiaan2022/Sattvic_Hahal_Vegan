@@ -11,7 +11,7 @@
             <a href="{% url 'dumplings' %}" id="gallery1-text" class='gallery-content btn-block  '>
                 <div class="gallery-content gallery-text d-flex align-items-center justify-content-center">
                     
-                    <h2 class="gallery-text">
+                    <h2 class="gallery-text responsive-title">
                         Check out our<br>
                         colorful Dumpling<br>
                         Ingredients!
@@ -24,7 +24,7 @@
         <div id="gallery2" class="gallery-container gallery2">
             <a href="{% url 'check_available' %}"  id="gallery2-text" class='gallery-content btn-block  display-5'>
                 <div class="gallery-content gallery-text">
-                    <h2 class="gallery-text">Book A Table</h2>
+                    <h2 class="gallery-text responsive-title">Book A Table</h2>
                 </div>
             </a>
         </div>
@@ -33,7 +33,7 @@
             <a href="{% url 'setMenu' %}" id="gallery3-text" class='gallery-content btn-block  display-5'>
                 <div class="gallery-content gallery-text d-flex align-items-center justify-content-center">
 
-                    <h2 class="gallery-text">
+                    <h2 class="gallery-text responsive-title">
                         Check out our<br>
                         Full Color<br>
                         Set Memu!
@@ -45,7 +45,7 @@
 
         <div class="about grid-content">
             <a href="{% url 'aboutUs' %}" class='title-link'>
-                <h5>
+                <h5 class=" responsive-subtitle">
                     <span>About Us</span><br>
                     <span>Open Hours</span><br>
                     <span>Location</span><br>                    
@@ -53,19 +53,37 @@
                 </h5>                
             </a>                                                                                
         </div>
-        <div class="menu grid-content responsive-title">
-            <a href="{% url 'menu' %}" class='title-link btn-block  display-5'>Menu & Price</a>                       
+
+        <div class="about-sm grid-content">
+            <a href="{% url 'aboutUs' %}" class='title-link'>
+                <h5 class=" responsive-subtitle">
+                    <span>About Us</span>
+                    <span>Open Hours</span>
+                    <span>Location</span>                    
+                    <span>Contact</span>
+                </h5>                
+            </a>                                                                                
+        </div>
+
+        <div class="menu grid-content">
+            <a href="{% url 'menu' %}" class='title-link btn-block'>
+                <h2>Menu & Price</h2>
+                </a>                       
         </div>
         
-        <div class="benefit grid-content">            
+        <div class="benefit grid-content">
+            <a class='title-link responsive-title' href="https://www.pcrm.org/health-topics" >Great Benefit</a>            
+            <a class='content-link' href="https://www.pcrm.org/health-topics" >                    
+                <p>The Physicians Committee promotes plant-based diets for good health and disease prevention. Learn about how nutrition affects disease risk.</p>                
+            </a>
             <a class='content-link' href="https://www.theyoganomads.com/sattvic-diet/" >                    
-                <h6>Bring Out The Best Of Physical, Mental, Emotional, And Spiritual Health!</h6>                
+                <p>Bring Out The Best Of Physical, Mental, Emotional, And Spiritual Health!</p>                
             </a>
             <a class='content-link' href="https://www.thinkrightme.com/what-is-sattvic-food-and-the-science-behind-it/" >                    
-                <h6>What Is The Science Behind The Sattvic Diet?</h6>                
+                <p>What Is The Science Behind The Sattvic Diet?</p>                
             </a>
             <a class='content-link' href="https://www.vantagefit.io/blog/sattvic-diet/" >                    
-                <h6>The Perfect Way To Boost Well-Being And Productivity!</h6>                
+                <p>The Perfect Way To Boost Well-Being And Productivity!</p>                
             </a>
         </div>
 
