@@ -1,5 +1,5 @@
 """
-ASGI config for Sattvic_Halal_Vegan project.
+ASGI config for Sattvic_Hahal_Vegan project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Sattvic_Halal_Vegan.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Sattvic_Hahal_Vegan.settings')
 
 application = get_asgi_application()
