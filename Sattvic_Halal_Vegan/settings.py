@@ -36,8 +36,8 @@ DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = [ '8000-wujiaan2022-sattvichaha-fs8yg1zrw19.ws-eu104.gitpod.io' ]
-# ALLOWED_HOSTS = ['sattvic-halal-vegan-1c2a56c89c22.herokuapp.com', 'localhost']
+# ALLOWED_HOSTS = [ '8000-wujiaan2022-sattvichaha-fs8yg1zrw19.ws-eu104.gitpod.io' ]
+ALLOWED_HOSTS = ['sattvic-halal-vegan-1c2a56c89c22.herokuapp.com', 'localhost']
 
 
 # Application definition
