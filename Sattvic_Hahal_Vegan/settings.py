@@ -36,7 +36,7 @@ DEBUG = False
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # ALLOWED_HOSTS = [ '8000-wujiaan2022-sattvichaha-fs8yg1zrw19.ws-eu104.gitpod.io' ]
-ALLOWED_HOSTS = ['sattvic-halal-vegan-restaurant-8064088c98b7.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['sattvic-halal-vegan-restaurant-8064088c98b7.herokuapp.com', 'localhost', '8000-wujiaan2022-sattvichaha-fs8yg1zrw19.ws-eu104.gitpod.io']
 
 
 # Application definition
@@ -187,19 +187,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'drzvd9vpn',
-    'API_KEY': '496564554768625',
-    'API_SECRET': 'zC_mKVCK6pEE9Ey_zVIztzSc8mU',
-}
 
 
 # Default primary key field type
