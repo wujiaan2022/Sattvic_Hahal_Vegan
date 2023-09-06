@@ -195,6 +195,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'drzvd9vpn',
+    'API_KEY': '496564554768625',
+    'API_SECRET': 'zC_mKVCK6pEE9Ey_zVIztzSc8mU',
+}
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
