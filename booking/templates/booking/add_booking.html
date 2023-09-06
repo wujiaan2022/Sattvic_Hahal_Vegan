@@ -17,7 +17,8 @@
   <form method="post" action="" >    
     {% csrf_token %}
 
-      <h5>To book a Table Please fill in the Form</h5> 
+      <h5>To book a Table Please fill in the Form</h5>
+      <h5 class="warning-text">Please do not change the prefilled information for table, date and time, otherwise it will cause double booking, thank you for your understanding.</h5> 
       
       {{ form|crispy }}
 

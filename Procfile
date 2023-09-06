@@ -1,1 +1,1 @@
-web: gunicorn Sattvic_Halal_Vegan.wsgi
+web: gunicorn Sattvic_Hahal_Vegan.wsgi

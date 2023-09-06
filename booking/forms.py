@@ -8,25 +8,32 @@ TIME_CHOICES = [
     ('18:00 for Dinner', '18:00 Dinner Time'),]
 
 
-class BookingForm(forms.ModelForm):
-    class Meta:
-        model = Booking
-        fields = [
-            'user',
-            'name',
-            'email',
-            'phone',
-            'time',
-            'table',
-            'date',
-            'party_size',
-        ]        
-       
-
-# class check_availability_form(forms.ModelForm):
+# class BookingForm(forms.ModelForm):
 #     class Meta:
 #         model = Booking
-#         fields = ['time']
+#         fields = [
+#             'user',
+#             'name',
+#             'email',
+#             'phone',
+#             'time',
+#             'table',
+#             'date',
+#             'party_size',
+#         ]        
+       
+
+class BookingForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super(BookingForm, self).__init__(*args, **kwargs)
+        if not user:
+            self.fields.pop('user')
+
+    class Meta:
+        model = Booking
+        fields = '__all__'
+
 
 class check_availability_form(forms.ModelForm):
     time = forms.CharField(

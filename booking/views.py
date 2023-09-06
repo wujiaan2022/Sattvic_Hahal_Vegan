@@ -61,7 +61,7 @@ def add_booking(request, table_id, booking_date, booking_time):
     
     else:
         if request.method == 'POST':
-            form = BookingForm(request.POST)
+            form = BookingForm(request.POST, user=None)
             if form.is_valid():
                 booking = form.save(commit=False)                
                 
