@@ -48,7 +48,7 @@ body {
   width: 100%; 
   padding-top: 10px;
   padding-bottom: 8px;
-  background-image: url('/static/images/pageHeaderRainbow2.jpg'); 
+  background-image: url('https://res.cloudinary.com/drzvd9vpn/image/upload/v1694014955/static/images/pageHeaderRainbow2.274b08e25d62.jpg'); 
   background-size: cover; 
   background-position: center; 
 }
@@ -61,7 +61,7 @@ body {
   height: 40px;
   position: fixed;
   bottom: 0;
-  background-image: url('/static/images/pageHeaderRainbow2.jpg'); 
+  background-image: url('https://res.cloudinary.com/drzvd9vpn/image/upload/v1694014955/static/images/pageHeaderRainbow2.274b08e25d62.jpg'); 
   background-size: cover; 
   background-position: center; 
 }
@@ -133,7 +133,7 @@ body {
 }
 
 #gallery2 {
-  background-image: url('/static/images/gardenView\ \(1\).jpg');  
+  background-image: url('https://res.cloudinary.com/drzvd9vpn/image/upload/v1694014943/static/images/gardenView%20%281%29.c52e095d7e01.jpg');  
 }
 
 #gallery3 { 
